@@ -40,7 +40,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-
+/*.state('reg', {
+      url: '/reg',  
+       abstract: true,
+       templateUrl : 'templates/reg.html',
+          controller: 'regCtrl'      
+                
+    })*/
   .state('app.browse', {
       url: '/browse',
       views: {

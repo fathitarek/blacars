@@ -6,8 +6,16 @@
     </div>
   </ion-header-bar>
   <ion-content>
+      <!-- registration-word -->
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3" ng-controller="regCtrl">
+       <h1 ng-click="reg()" class="text-center" style="color:#177ee7;">تسجيل الدخول</h1>
+    </div>
+  </div>
+</div>
     <form ng-submit="doLogin()">
-      <div class="list">
+     <!-- <div class="list">
         <label class="item item-input">
           <span class="input-label">Username</span>
           <input type="text" ng-model="loginData.username">
@@ -19,7 +27,58 @@
         <label class="item">
           <button class="button button-block button-positive" type="submit">Log in</button>
         </label>
+      </div>-->
+     <div class="row">
+    <div class="col-xs-1">
+    <i class="fa fa-user" aria-hidden="true" style="color:#177ee7; font-size:18px;"></i>
+    </div>
+    <div class="col-xs-11">
+    <input type="text" placeholder="البريد الاكتروني" style="border:none; color:#5d5d5d; font-size:18px;">
+    </div>
+  </div>
+  
+  <hr>
+  <div class="container">
+
+<!-- facebook-button -->
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3">
+    
+    <a class="btn btn-block btn-social btn-facebook" style="text-align:right;" >
+   <span class="fa fa-facebook" ></span>
+   <span style="padding-right:2%; font-size:18px;">
+        تسجيل الدخول عن طريق الفيسبوك
+   </span>
+    </a>
+    </div>
+  </div>
+  
+ <!--او sperated--> 
+  <table width="200" border="0" align="center">
+  <tbody>
+    <tr>
+      <td style="width:47%;"><hr></td>
+      <td style="width:15%; text-align:center; color:#5d5d5d; font-size:18px;">او</td>
+      <td style="width:47%;"><hr></td>
+    </tr>
+  </tbody>
+</table>
+  <div class="row">
+    <div class="col-xs-1">
+      <span class="glyphicon glyphicon-lock" aria-hidden="true" style="color:#177ee7; font-size:18px;">
+      </span> 
       </div>
+    <div class="col-xs-11">
+    <input type="text" placeholder="كلمة المرور" style="border:none; color:#5d5d5d; font-size:18px;">
+    </div>
+  </div>
+ 
+  <hr>
     </form>
+      <div class="row">
+  	<a style="float:left; color:#177ee7;">هل نسيت كلمة المرور؟</a>
+  </div>
+
+</div>
   </ion-content>
 </ion-modal-view>
