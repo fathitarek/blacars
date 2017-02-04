@@ -1,20 +1,31 @@
-<ion-modal-view>
-  <ion-header-bar>
+<ion-view view-title="">
+  <!--<ion-header-bar>
     <h1 class="title">Login</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
     </div>
-  </ion-header-bar>
+  </ion-header-bar>-->
   <ion-content>
-      <!-- registration-word -->
-<div class="container-fluid">
-  <div class="row">
-      <div class="col-md-6 col-md-offset-3" ng-controller="regCtrl">
-       <h1 ng-click="reg()" class="text-center" style="color:#177ee7;">تسجيل الدخول</h1>
-    </div>
-  </div>
+    <!-- registration-word -->
+<div class="container"  ng-controller="regCtrl">
+<h1 class="title" ng-click="reg()" >تسجيل الدخول</h1>
+<!-- facebook-button -->
+<div class="row">
+  <button class="button button-full social-button-square-facebook" ng-click="reg()">
+    <i class="icon ion-social-facebook"></i>تسجيل الدخول عن طريق حساب الفيسبوك</button>
 </div>
-    <form ng-submit="doLogin()">
+
+<!--او sperated-->
+<table width="200" border="0" align="center">
+<tbody>
+  <tr>
+    <td style="width:20%;"><div class="line"></div></td>
+    <td class="or">او</td>
+    <td style="width:20%;"><div class="line"></div></td>
+  </tr>
+</tbody>
+</table>
+    <form name="login" novalidate >
      <!-- <div class="list">
         <label class="item item-input">
           <span class="input-label">Username</span>
@@ -28,57 +39,64 @@
           <button class="button button-block button-positive" type="submit">Log in</button>
         </label>
       </div>-->
-     <div class="row">
-    <div class="col-xs-1">
-    <i class="fa fa-user" aria-hidden="true" style="color:#177ee7; font-size:18px;"></i>
-    </div>
-    <div class="col-xs-11">
-    <input type="text" placeholder="البريد الاكتروني" style="border:none; color:#5d5d5d; font-size:18px;">
-    </div>
-  </div>
-  
-  <hr>
-  <div class="container">
+      <div class="list">
+ <label class="item item-input item-stacked-label">
+   <i class="icon ion-person"></i>
+    <input class="icon-input"  type="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" ng-model="email" name="email" placeholder="البريد الاكتروني">
+    </label>
+    <label class="error-msg"></label>
+  <label class="item item-input item-stacked-label">
+    <i class="icon ion-locked"></i>
+    <input class="icon-input" type="password" name="password" ng-model="password"  ng-minlength="6"
+    placeholder="كلمة المرور"  placeholder="كلمة المرور">
+  </label>
+</div>
+<div class="row">
+  <button class="button button-full button-positive" ng-click="doLogin(password,email)"  ng-disabled="login.$invalid">تسجيل الدخول</button>
+</div>
+</form >
 
-<!-- facebook-button -->
-  <div class="row text-center">
-    <div class="col-md-6 col-md-offset-3">
-    
-    <a class="btn btn-block btn-social btn-facebook" style="text-align:right;" >
-   <span class="fa fa-facebook" ></span>
-   <span style="padding-right:2%; font-size:18px;">
-        تسجيل الدخول عن طريق الفيسبوك
-   </span>
-    </a>
-    </div>
-  </div>
-  
- <!--او sperated--> 
-  <table width="200" border="0" align="center">
-  <tbody>
-    <tr>
-      <td style="width:47%;"><hr></td>
-      <td style="width:15%; text-align:center; color:#5d5d5d; font-size:18px;">او</td>
-      <td style="width:47%;"><hr></td>
-    </tr>
-  </tbody>
-</table>
-  <div class="row">
-    <div class="col-xs-1">
-      <span class="glyphicon glyphicon-lock" aria-hidden="true" style="color:#177ee7; font-size:18px;">
-      </span> 
+
+<div class="w3-container">
+  <a class="forget-password" ng-click="showPopup()"> هل نسيت كلمة المرور؟ </a>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-closebtn">&times;</span>
+        <div class="row responsive-sm">
+        <div class="col">
+        <button class="button button-full button-positive">الايميل الالكتروني الخاص بك</button>
+        </div>
+        <div class="col">
+          <button class="button button-full button-positive">ارسال</button>
+        </div>
+        </div>
       </div>
-    <div class="col-xs-11">
-    <input type="text" placeholder="كلمة المرور" style="border:none; color:#5d5d5d; font-size:18px;">
     </div>
   </div>
- 
-  <hr>
-    </form>
-      <div class="row">
-  	<a style="float:left; color:#177ee7;">هل نسيت كلمة المرور؟</a>
-  </div>
+</div>
 
+
+
+
+<select>
+        <option ng-repeat="country in countries">{{country.name}}</option>
+
+    </select>
+
+<select>
+        <option ng-repeat="location in locations">{{location.name}}</option>
+
+    </select>
+
+<div>
+<span >{{profile.firstname}}</span><br>
+<span >{{profile.lastname}}</span><br>
+<span >{{profile.email}}</span><br>
+<span >{{profile.gender}}</span><br>
 </div>
   </ion-content>
-</ion-modal-view>
+</ion-view>
+>

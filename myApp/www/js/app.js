@@ -31,7 +31,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
+  .state('app.login', {
+        url: '/login',
+        views: {
+            'menuContent': {
+        templateUrl: 'templates/login.html'
+      }
+      }
+    })
   .state('app.search', {
     url: '/search',
     views: {
@@ -40,13 +47,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-/*.state('reg', {
-      url: '/reg',  
-       abstract: true,
+.state('reg', {
+      url: '/reg',
+       //abstract: true,
+       'menuContent': {
        templateUrl : 'templates/reg.html',
-          controller: 'regCtrl'      
-                
-    })*/
+          controller: 'regCtrl'
+}
+    })
   .state('app.browse', {
       url: '/browse',
       views: {

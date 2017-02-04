@@ -59,9 +59,7 @@ body{
     font-size: 12px;
     font-weight: bold;
   }
-.ion-person,.ion-locked{ color: #177ee7;}
-.popup-body,.popup-head{padding: 0px;}
-.popup-container .popup{ width: 370px;    margin-bottom: 60%;}
+.ion-person .ion-locked{ color: #177ee7;}
 .social-button-square-facebook {
     color: #fff;
     background-color: #3b5998;
