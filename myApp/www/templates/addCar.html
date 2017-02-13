@@ -1,0 +1,65 @@
+<ion-view view-title="Search">
+  <ion-content ng-controller="carCtrl">
+    <div class="container"  >
+
+<div class="container">
+    <div class="list">
+
+  <div class="item item-button-right">
+    اضف سيارة
+    <a id="list-icon">
+      <i class="icon ion-chevron-left"></i>
+    </a>
+  </div>
+</div>
+   <!-- <img id="car-img" src="img/car.png">-->
+    <hr>
+  <form >
+    <input class="bottom-marg-15" type="file" name="file" id="file" file="file">
+
+    <div class="list" >
+<!--اختار -->
+<h4 class="addcar-text">اختار</h4>
+    <select name="brand" id="brand">
+      <option disabled selected>اختار السيارة المناسبة لك</option>
+
+
+    </select>
+   <!-- الرفاهية-->
+<h4 class="addcar-text">الرفاهية</h4>
+<select name="entertainment" id="entertainment">
+     <option disabled selected>اختار مستوي الرفاهية المناسب لك</option>
+</select>
+ <!--عدد المقاعد -->
+<h4 class="addcar-text">اجمالي عدد القاعد المناسب لك</h4>
+    <select name="number_of_seats" id="number_of_seats">
+     <option value="0">لا يوجد</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+<!-- اللون-->
+<h4 class="addcar-text">اللون</h4>
+    <select name="color" id="color">
+     <option disabled> اختار اللون المناسب لك</option>
+      <option value="Green">Green</option>
+      <option value="Red">Red</option>
+    </select>
+<!-- نوع السيارة-->
+<h4 class="addcar-text">نوع السيارة</h4>
+    <select name="type" id="type">
+
+
+    </select>
+</div>
+<div class="col">
+<button id="save-btn" class="button button-full button-positive" ng-click="addCar(file,brand,color,entertainment,number_of_seats,type)">
+حفظ
+</button>
+</div>
+  </form>
+</div>
+    </div>s
+    </ion-content>
+  </ion-view>

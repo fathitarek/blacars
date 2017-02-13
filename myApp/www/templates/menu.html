@@ -1,37 +1,48 @@
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus enable-menu-with-back-views="false" ng-controller="profileCtrl" >
   <ion-side-menu-content>
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
       <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+  <ion-side-menu side="right" >
+   <ion-header-bar class="bar-stable">
+     <img src="img/القائمه.png">
+
+      <h1 id="title" class="title" >{{profile.firstname}} {{profile.lastname}}</h1>
+
+        <i id="setting" class="icon ion-gear-a"></i>
+
     </ion-header-bar>
+
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/login">
-          Login
+        <ion-item class="menu-item" menu-close href="#/app/login">
+          <i class="icon ion-android-car"></i>
+          رحلاتك السابقة
         </ion-item>
-            <ion-item menu-close ng-click="reg()">
-          reg
+         <ion-item id="car-request" class="menu-item" menu-close ng-click="reg()">
+           <i class="icon ion-ios-plus-outline"></i>
+          اطلب مواصلة
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item class="menu-item" menu-close href="#/app/search">
+          <i class="icon ion-ios-star"></i>
+          التقيم
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+        <ion-item class="menu-item" menu-close href="#/app/browse">
+          <i class="icon ion-email"></i>
+          صندوق الوارد
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+        <ion-item class="menu-item" menu-close href="#/app/playlists">
+          <i class="icon ion-ios-help-outline"></i>
+          اطلب مساعدة
         </ion-item>
       </ion-list>
     </ion-content>

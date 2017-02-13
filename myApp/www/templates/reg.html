@@ -52,10 +52,10 @@
 
   <label class="item item-input item-stacked-label">
 
-    <input type="text" name="password2" ng-model="password2" ng-match="password" placeholder=" تاكيد كلمة المرور">
+    <input type="text" name="password2" ng-model="password2"  compare-to="password" match="password" placeholder=" تاكيد كلمة المرور">
   </label>
 
- <label class="error-msg" ng-show="login.password2.$error.match">كلمه المرور غير متطابقه</label>
+ <label class="error-msg" ng-show="login.password2.$error.match" ng-if="password!=password2">كلمه المرور غير متطابقه</label>
 
  	<div class="row" style="display: inline-flex; margin-right: 15px;">
     <div class="form-check form-check-inline">

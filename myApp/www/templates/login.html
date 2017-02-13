@@ -7,11 +7,11 @@
   </ion-header-bar>-->
   <ion-content>
     <!-- registration-word -->
-<div class="container"  ng-controller="regCtrl">
+<div class="container"  ng-controller="AppCtrl">
 <h1 class="title" ng-click="reg()" >تسجيل الدخول</h1>
 <!-- facebook-button -->
 <div class="row">
-  <button class="button button-full social-button-square-facebook" ng-click="reg()">
+  <button class="button button-full social-button-square-facebook" ng-click="loginFacebook()">
     <i class="icon ion-social-facebook"></i>تسجيل الدخول عن طريق حساب الفيسبوك</button>
 </div>
 
@@ -57,10 +57,10 @@
 </form >
 
 
-<div class="w3-container">
+<div class="w3-container" ng-controller="AppCtrl">
   <a class="forget-password" ng-click="showPopup()"> هل نسيت كلمة المرور؟ </a>
 
-  <div id="id01" class="w3-modal">
+ <!-- <div id="id01" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">
         <span onclick="document.getElementById('id01').style.display='none'"
@@ -75,12 +75,12 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 </div>
 
 
 
-
+<!--
 <select>
         <option ng-repeat="country in countries">{{country.name}}</option>
 
@@ -90,7 +90,7 @@
         <option ng-repeat="location in locations">{{location.name}}</option>
 
     </select>
-
+-->
 <div>
 <span >{{profile.firstname}}</span><br>
 <span >{{profile.lastname}}</span><br>

@@ -1,58 +1,67 @@
 angular.module('starter.controllers', [])
-.controller('regCtrl', function ($scope,$ionicModal, $timeout,$http,$location,$state){
-    $ionicModal.fromTemplateUrl('templates/reg.html', {
-             scope: $scope
-             }).then(function(modal) {
-             $scope.modal = modal;
-             });
-             $scope.closeReg = function() {
-             $scope.modal.hide();
-             };
-             $scope.reg = function() {
-             $scope.modal.show();
-             };
-          /*   $scope.firstname = null;
-            $scope.lastname = "lastname";
-            $scope.password = null;
-            $scope.email = null;
-            $scope.country_id = 1;*/
-             $scope.doReg = function (firstname, password, email, gender) {
+.controller('regCtrl', function ($scope,$ionicModal, $timeout,$http,$location,$state) {
+  //$ionicModal.fromTemplateUrl('templates/reg.html', {
+  /*  scope: $scope
+   }).then(function(modal) {
+   $scope.modal = modal;
+   });
+   $scope.closeReg = function() {
+   $scope.modal.hide();
+   };
+   $scope.reg = function() {
+   $scope.modal.show();
+   };*/
+  /*   $scope.firstname = null;
+   $scope.lastname = "lastname";
+   $scope.password = null;
+   $scope.email = null;
+   $scope.country_id = 1;*/
+  $scope.reg=function () {
+    $state.go('reg');
 
-                var data = {
-                    firstname: firstname,
-                    lastname:"lastname",
-                    password: password,
-                    email: email,
-                    gender: gender,
-                    country_id:1,
+  }
+  $scope.doReg = function (firstname, password, email, gender) {
 
-                };
-                 alert(data.email);
-                var link = 'http://dealandcode.com/blabla/blabla/public/api/register';
-                var headers = {
-                    'Authorization': 'Basic ',
-                    'Accept': 'application/json; charset=utf-8',
-                    'Content-Type': 'application/json; charset=utf-8'
-                };
+    var data = {
+      firstname: firstname,
+      lastname: "lastname",
+      password: password,
+      email: email,
+      gender: gender,
+      country_id: localStorage.getItem("country_id"),
+
+    };
+    alert(data.email);
+    var link = 'http://dealandcode.com/blabla/blabla/public/api/register';
+    var headers = {
+      'Authorization': 'Basic ',
+      'Accept': 'application/json; charset=utf-8',
+      'Content-Type': 'application/json; charset=utf-8'
+    };
 //{firstname:$scope.data.firstname,lastname:$scope.data.lastname,password:$scope.data.password,email:$scope.data.email,country_id:$scope.data.country_id}
-                $http.post(link,data).then(function (res) {
-                    alert("in fun4");
-                  alert(res);
-                    alert(res.data)
-                    $scope.response = res.data;
-                     alert("in fun3");
-                    $state.go('/login');
-                });
-};
+    $http.post(link, data).then(function (res) {
+      alert("in fun4");
+      //alert(res);
+      //alert(res.data)
+      $scope.response = res.data;
+      // alert("in fun3");
+      $state.go('login');
+    });
+  }
+
   })
-        .controller('AppCtrl', function ($scope,$ionicModal,$ionicPopup, $timeout,$http,$location) {
+        .controller('AppCtrl', function ($scope,$ionicPopup,$timeout,$http,$location,$state) {
           // Triggered on a button click, or some other target
+          $scope.out=function () {
+           // alert("out")
+            ionic.Platform.exitApp();
+          }
    $scope.showPopup = function() {
      $scope.data = {}
 
      // An elaborate, custom popup
      var myPopup = $ionicPopup.show({
-       template: '<div class="row responsive-sm"><div class="col"><button class="button button-full button-positive">الايميل الالكتروني الخاص بك</button></div><div class="col"><button class="button button-full button-positive">ارسال</button></div></div>',
+       template: '<button class="button button-full button-positive">الايميل الالكتروني الخاص بك</button><button class="button button-full button-positive">ارسال</button>',
        title: '',
        subTitle: '',
        scope: $scope,
@@ -130,23 +139,38 @@ angular.module('starter.controllers', [])
                 var link = 'http://dealandcode.com/blabla/blabla/public/api/login';
                 $http.post(link,data).then(function (res) {
                     $scope.response = res.data;
-                    $location.path('#/templates/login.html');
+                   // $location.path('#/templates/login.html');
+                  alert("bosy")
                 }).then(function(){
                   console.log($scope.response.data.token)
                   localStorage.setItem("token",$scope.response.data.token);
                 alert("token is :" + localStorage.getItem("token"))
+                  $state.go('app.addCar');
                 })};
 
-                var link = 'http://dealandcode.com/blabla/blabla/public/api/countries';
-                $http.get(link)
-                         .then(function (response) {
-                             // $scope.data = response.data;
-//console.log(response.data.name)
-                             $scope.countries = response.data.data;
-                              //console.log('Got some data: ', response.data.data);
-                             // return data;
-                         })
-                var link = 'http://dealandcode.com/blabla/blabla/public/api/locations?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE0LCJpc3MiOiJodHRwOlwvXC9kZWFsYW5kY29kZS5jb21cL2JsYWJsYVwvYmxhYmxhXC9wdWJsaWNcL2FwaVwvbG9naW4iLCJpYXQiOjE0ODYxMjg3NDcsImV4cCI6MTQ4ODcyMDc0NywibmJmIjoxNDg2MTI4NzQ3LCJqdGkiOiIzODhiM2RiMmM1YWM1NmZjNDlhYjRlNWYzZmZmMmFkMiJ9.wm3jNVk4y9tx6jrUS1B_A1-oD2T5F77vXWQt31L7Tts';
+$scope.loginFacebook=function(){
+/*  $cordovaOauth.facebook("1866432703602132", ["email", "read_stream", "user_website", "user_location", "user_relationships"]).then(function(result) {
+        //$localStorage.accessToken = result.access_token;
+        //$location.path("/profile");
+        alert(result.access_token)
+    }, function(error) {
+        alert("There was a problem signing in!  See the console for logs");
+        console.log(error);
+    });*/
+/*
+      var full_name = $ionicUser.social.facebook.data.full_name;
+  console.log(full_name)
+});*/
+
+alert("hey")
+};
+
+
+
+
+
+
+             /*   var link = 'http://dealandcode.com/blabla/blabla/public/api/locations?token='+localStorage.getItem("token");
                 $http.get(link)
                          .then(function (response) {
                              // $scope.data = response.data;
@@ -155,18 +179,10 @@ angular.module('starter.controllers', [])
                             //  console.log('Got some data: ', $scope.cuntry.data.locations);
                              // return data;
                          })
-                         var link = 'http://dealandcode.com/blabla/blabla/public/api/profile?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE0LCJpc3MiOiJodHRwOlwvXC9kZWFsYW5kY29kZS5jb21cL2JsYWJsYVwvYmxhYmxhXC9wdWJsaWNcL2FwaVwvbG9naW4iLCJpYXQiOjE0ODYxMjg3NDcsImV4cCI6MTQ4ODcyMDc0NywibmJmIjoxNDg2MTI4NzQ3LCJqdGkiOiIzODhiM2RiMmM1YWM1NmZjNDlhYjRlNWYzZmZmMmFkMiJ9.wm3jNVk4y9tx6jrUS1B_A1-oD2T5F77vXWQt31L7Tts';
-                         $http.get(link)
-                                  .then(function (response) {
-                                      // $scope.data = response.data;
-      //   console.log(response.data.data.user)
-                                      $scope.profile = response.data.data.user;
-                                      // alert('Got some data: ', response.data.data.user);
-                                      // return data;
-                                  })
+                         */
           /*  $ionicModal.fromTemplateUrl('templates/reg.html', {
                 scope: $scope
-            }).then(function (modal) {
+           }).then(function (modal) {
                 $scope.modal = modal;
             });
             $scope.closeReg = function () {
@@ -188,6 +204,73 @@ angular.module('starter.controllers', [])
                 {title: 'Cowbell', id: 6}
             ];
         })
+.controller('countriesCtrl',function($scope,$ionicModal, $timeout,$http,$location,$state){
+  var link = 'http://dealandcode.com/blabla/blabla/public/api/countries';
+  $http.get(link)
+           .then(function (response) {
+               $scope.countries = response.data.data;
+           })
+ $('#country').change(function() {
+    console.log("your function");
+    window.localStorage.setItem( "country_id",$("#country").val());
+   // $location.path('../login')
+   $state.go('login');
 
+ });
+})
+  .controller('carCtrl', function ($scope,$http) {
+
+   // alert("cars")
+    var link = 'http://dealandcode.com/blabla/blabla/public/api/car/info?token='+localStorage.getItem("token");
+    $http.get(link)
+      .then(function (response) {
+        $scope.cars = response.data.data.brands;
+         $scope.types = response.data.data.types;
+         $scope.entertainment = response.data.data.entertainment;
+        console.log('Got some data: ', $scope.cars);
+        console.log('Got some obj: ', $scope.myjs);
+                 angular.forEach($scope.cars, function(value, key) {
+                   console.log(key + ': ' + value.name);
+                   $("#brand").append("<option value='"+value.id +"'>"+value.name+"</option>");
+                 });
+                   angular.forEach($scope.entertainment, function(value, key) {
+                     $("#entertainment").append("<option value='"+value.id +"'>"+value.name+"</option>");
+                    });
+
+                   angular.forEach($scope.types, function(value, key) {
+                     console.log(key + ': ' + value.name);
+                     $("#type").append("<option  value='"+value.id +"'>"+value.name+"</option>");
+                    });
+      });
+    $scope.addCar=function(image,brand,color,entertainment,number_of_seats,type){
+      console.log($("#file")[0].files[0].name)
+      if ($("#file")[0].files[0].type == 'image/jpeg' || $("#file")[0].files[0].type == 'image/png') {
+        var data = {image:$("#file")[0].files[0].name ,color: $("#color").val(),brand: $("#brand").val(), entertainment: $("#entertainment").val(),number_of_seats: $("#number_of_seats").val(),type:  $("#type").val() };
+         //console.log("Data"+data.brand,data.color,data.entertainment ,data.number_of_seats,data.type)
+         var link = 'http://dealandcode.com/blabla/blabla/public/api/car/store?token='+localStorage.getItem("token");
+         var headers = { 'Authorization': 'Basic ', 'Accept': 'application/json; charset=utf-8', 'Content-Type': 'application/json; charset=utf-8' };
+         alert("in fun3");
+         $http.post(link,data).then(function (res) {
+         alert("in fun4");
+         //alert(res);
+         //alert(res.data);
+         $scope.response = res.data;
+
+         // $location.path('/login');
+         });
+      }
+    }
+  })
+  .controller('profileCtrl',function ($scope,$http) {
+    var link = 'http://dealandcode.com/blabla/blabla/public/api/profile?token='+localStorage.getItem("token");
+    $http.get(link)
+      .then(function (response) {
+        // $scope.data = response.data;
+        //   console.log(response.data.data.user)
+        $scope.profile = response.data.data.user;
+         console.log('Got some prof: ', response.data.data.user.firstname);
+        // return data;
+      })
+  })
         .controller('PlaylistCtrl', function ($scope, $stateParams) {
         });

@@ -23,6 +23,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+/*  var appID = 1866432703602132;
+  var version = "v2.8"; // or leave blank and default is v2.0
+  $cordovaFacebookProvider.browserInit(appID, version);
+});*/
   $stateProvider
 
     .state('app', {
@@ -31,14 +35,39 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-  .state('app.login', {
+  .state('login', {
         url: '/login',
-        views: {
-            'menuContent': {
+      //  views: {
+            //'menuContent': {
         templateUrl: 'templates/login.html'
-      }
-      }
+    //  }
+      //}
     })
+    .state('countries', {
+          url: '/countries',
+        //  views: {
+              //'menuContent': {
+          templateUrl: 'templates/countries.html'
+      //  }
+        //}
+      })
+      .state('security', {
+            url: '/security',
+          //  views: {
+                //'menuContent': {
+            templateUrl: 'templates/security.html'
+        //  }
+          //}
+        })
+        .state('app.addCar', {
+              url: '/addCar',
+            views: {
+                 'menuContent': {
+              templateUrl: 'templates/addCar.html',
+                   controller: 'carCtrl'
+            }
+            }
+          })
   .state('app.search', {
     url: '/search',
     views: {
@@ -50,10 +79,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .state('reg', {
       url: '/reg',
        //abstract: true,
-       'menuContent': {
+       //'menuContent': {
        templateUrl : 'templates/reg.html',
           controller: 'regCtrl'
-}
+        //}
     })
   .state('app.browse', {
       url: '/browse',
@@ -83,5 +112,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('countries');
+  if(localStorage.getItem("token")){
+    $urlRouterProvider.otherwise('/app/addCar');
+  }
+  else{$urlRouterProvider.otherwise('security');}
 });
