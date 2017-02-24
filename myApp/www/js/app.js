@@ -68,6 +68,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
             }
           })
+           .state('app.editProfile', {
+              url: '/editProfile',
+            views: {
+                 'menuContent': {
+              templateUrl: 'templates/editProfile.html',
+                   controller: 'profileCtrl'
+            }
+            }
+          })
   .state('app.search', {
     url: '/search',
     views: {
@@ -114,7 +123,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('countries');
   if(localStorage.getItem("token")){
-    $urlRouterProvider.otherwise('/app/addCar');
+    $urlRouterProvider.otherwise('/app/playlists');
+    
   }
   else{$urlRouterProvider.otherwise('security');}
 });

@@ -1,0 +1,94 @@
+<ion-view view-title="Search">
+  <ion-content ng-controller="profileCtrl">
+     <div class="row">
+  <div class="col col-50">
+    <button class="button button-outline button-positive">
+  Outlined Button
+   </button>    
+  </div>
+  <div id="edit-img" class="col col-50" >
+      <button class="button-small" id="edit"></button>
+     <img src="#" alt="A.A" id="personal-img"> 
+  </div>
+</div>
+
+<!--//////////////////////////////-->
+<div class="bar bar-positive" style="position: initial;">
+  <h5 class="new-bar">اضف بعض البيانات</h5>
+</div>
+<form name="update" novalidate>
+<div id="form" class="container">
+<div class="list">
+      <label class="item-stacked-label">
+    <span class="input-label">النوع </span></label>
+    <select id="gender" name="gender">
+        <option value="male">ذكر</option>
+        <option value="female">انثي</option>
+    </select>
+    
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">الاسم الاول</span>
+    <input type="text" id="firstname" placeholder="first name" value="">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">اسم الاب</span>
+    <input type="text" id="lastname" placeholder="Suhr"  value="">
+  </label>
+  
+    <label class="item-stacked-label">
+    <span class="input-label">تاريخ الميلاد </span></label>
+      <!--<ion-datetime displayFormat="MM/DD/YYYY" ></ion-datetime>-->
+      
+
+    <label class="item item-input item-stacked-label">
+    <span class="input-label"> نبذه مختصرة عنك</span>
+    <textarea placeholder="Comments" id="brief" name="brief"></textarea>
+    </label>
+    <label class="error-msg">500/0</label>
+    <div class="row">
+  <button class="button button-full button-positive" ng-click='editprofile()'>
+    حفظ معلومات الملف
+  </button>
+</div>
+</div>
+</div>
+    </form>
+<form  name='email' novalidate>
+<div class="bar bar-positive" style="position: initial;">
+  <h5 class="new-bar"> البريد الالكتروني </h5>
+</div>
+<div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-email placeholder-icon"></i>
+    <input type="email" ng-model="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" placeholder="Example@mail.com" name="email" id="email">
+  </label>
+</div>
+<div class="row">
+  <button class="button button-full button-positive" ng-disabled="email.$invalid" ng-click="editemil()" >
+    حفظ البريد الالكتروني
+  </button >
+</div>
+</form >
+<form>
+<div class="bar bar-positive" style="position: initial;">
+  <h5 class="new-bar"> رقم الهاتف </h5>
+</div>
+<div class="list list-inset">
+  <label class="item item-input">
+       <select id="flag">
+     <option style="background-image:url(../images/egypt-flag_03.png);">egpt</option>
+      <option>usa</option>
+      <option>canda</option>
+    </select>
+      <input type="number" id="phone" name="phone">
+  </label>
+    <ion-checkbox ng-model="filter.red">لا تظهر رقمي الشخصي</ion-checkbox>  
+</div>
+    <div class="row">
+  <button class="button button-full button-positive" ng-click="addphone()">
+     احفظ رقم الهاتف 
+  </button >
+</div>  
+    </form>
+    </ion-content>
+  </ion-view>
