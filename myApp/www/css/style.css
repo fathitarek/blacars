@@ -221,6 +221,15 @@ display: block;
 }
 #form{position: relative;}
 #flag{width: 5%;}
+#green{
+    color:#4abb61;
+    font-weight: bolder;
+}
+#red{
+    color:#fa474a;
+    font-weight: bolder;
+}
+
 /**/
 @media screen and (max-width : 1024px){
   table{

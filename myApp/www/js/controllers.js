@@ -298,5 +298,16 @@ angular.module('starter.controllers', [])
                         }
                     })
         })
+                .controller('takedriveCtrl',function ($http,$scope){
+                     var link = 'http://dealandcode.com/blabla/blabla/public/api/locations?token='+localStorage.getItem("token");
+             $http.get(link)
+             .then(function (response) {
+             // $scope.data = response.data;
+             //alert(response.data.data.locations)
+             $scope.locations = response.data.data.locations;
+              console.log('Got some data: ',  response.data.data.locations);
+             // return data;
+             })
+                })
         .controller('PlaylistCtrl', function ($scope, $stateParams) {
         });

@@ -1,0 +1,53 @@
+<ion-view view-title="Search">
+  <ion-content ng-controller="takedriveCtrl">
+    <div class="container"  >
+
+<div class="container">
+ <div class="list">
+  <a class="item item-icon-right" href="#">
+    <i id="green" class="icon ion-android-radio-button-off"></i>
+    <input type="text" placeholder="من">
+  </a>
+     
+  <a class="item item-icon-right" href="#">
+    <i id="red" class="icon ion-android-radio-button-off"></i>
+      <input type="text" placeholder="الي">
+  </a>
+
+</div>
+</div>
+ <div class="bar bar-positive" style="display:block; position:relative;">
+  <h5 class="new-bar"> الوقت و الميعاد </h5>
+</div>
+<div class="list">
+
+  <a class="item item-icon-right" href="#">
+    <i class="icon ion-arrow-swap"></i>
+    <ion-checkbox ng-model="filter.red">ذهاب و عودة</ion-checkbox> 
+  </a>
+</div>
+<div class="container">
+    <div class="list">    
+   <a class="item item-icon-left item-icon-right" href="#">
+    <input type="text" placeholder="ميعاد الرحلة">
+    <i class="icon ion-calendar"></i>
+    <div>وقت الرحلة</div>
+  </a>
+ <a class="item item-icon-left item-icon-right" href="#">
+    <input type="text" placeholder="ميعاد الرحلة">
+    <i class="icon ion-calendar"></i>
+    <div>وقت الرحلة</div>
+  </a>
+</div>
+    <div class="row">
+  <button class="button button-full button-positive">
+    متابعة  
+  </button>
+</div>
+    <select>
+        <option ng-repeat="location in locations">{{location.name}}</option>
+
+    </select>
+</div>
+    </ion-content>
+  </ion-view>
