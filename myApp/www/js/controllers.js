@@ -167,10 +167,6 @@ angular.module('starter.controllers', [])
             };
 
 
-
-
-
-
             /*   var link = 'http://dealandcode.com/blabla/blabla/public/api/locations?token='+localStorage.getItem("token");
              $http.get(link)
              .then(function (response) {
@@ -274,40 +270,189 @@ angular.module('starter.controllers', [])
                         $('#firstname').val(response.data.data.user.firstname)
                         $('#lastname').val(response.data.data.user.lastname)
                         $('#email').val(response.data.data.user.email)
-                        
+
                          $scope.editprofile=function(){
                              var data = {firstname: $("#firstname").val(),lastname: $("#lastname").val(),birthdate:"2016-12-08",brief:$("#brief").val(),gender:$('#gender').val()};
                         var link = 'http://dealandcode.com/blabla/blabla/public/api/profile/update?token=' + localStorage.getItem("token");
                         $http.post(link,data).then(function (response) {
-                            
+
                         });
                         }
                         $scope.addphone=function(){
                              var data = {phone: $("#phone").val()};
                         var link = 'http://dealandcode.com/blabla/blabla/public/api/profile/update?token=' + localStorage.getItem("token");
                         $http.post(link,data).then(function (response) {
-                            
+
                         });
                         }
                         $scope.editemil=function(){
                              var data = {email: $("#email").val()};
                         var link = 'http://dealandcode.com/blabla/blabla/public/api/profile/update?token=' + localStorage.getItem("token");
                         $http.post(link,data).then(function (response) {
-                            
+
                         });
                         }
                     })
         })
                 .controller('takedriveCtrl',function ($http,$scope){
+
+
+/**/
+                  var i = 0;
+                  var flag=0;
+                  var val= $('#numOfMoney').html();
+                  var set= $('#numOfSet').html();
+                  $('#decrease').click(function () {
+                    if (val > 0) {
+                      val--;
+                      $('#price').html(val);
+                    $('#numOfMoney').html(val);
+                  }
+
+                  })
+
+                  $('#increase').click(function () {
+                    val ++;
+                    $('#price').html(val);
+                    $('#numOfMoney').html(val);
+                  })
+
+                  $('#descraseSet').click(function () {
+                    if (set > 0 && set<=4) {
+                      set--;
+                      $('#numOfSet').html(set);
+                    }
+
+                  })
+
+                  $('#inscraseSet').click(function () {
+                    if (set<=3) {
+                      set++;
+                      $('#numOfSet').html(set);
+                    }
+                  })
+
+
+                  // $)document(.on)'change', '#name', function
+                   $('#goandaway').change(function () {
+                     if($('#goandaway').prop('checked') == true){
+                       $('#divAway').css('display','block')
+                       $('#divAway').css('visibility','visible')
+
+                  }else{ $('#divAway').css('display','none')
+                       $('#divAway').css('visibility','hidden')
+                     }
+                 })
+
+                  $('#follow').click(function () {
+
+                    $('#part2').css('display','block')
+                      $('#part2').css('visibility','visible')
+
+
+                  })
+                  $("#condation").change(function(){
+
+
+                  if($('#condation').prop('checked') === true){
+                     alert("L");
+                    $('#publish').prop("disabled", false);
+                  }else{
+                    $('#publish').prop("disabled", true);
+                  }
+
+                  })
+ //alert($('#condation').prop('checked'))
+                  var result = [];
                      var link = 'http://dealandcode.com/blabla/blabla/public/api/locations?token='+localStorage.getItem("token");
              $http.get(link)
              .then(function (response) {
+               console.log(  response.data.data.locations[0].name)
+              // console.log("REsults :    "+result)
              // $scope.data = response.data;
              //alert(response.data.data.locations)
              $scope.locations = response.data.data.locations;
               console.log('Got some data: ',  response.data.data.locations);
-             // return data;
+
              })
+
+                  $scope.takedrive = function () {
+                    var back_seat_number=0;
+                    if($("#back_seat_number").prop('checked') == true){
+                      back_seat_number=1;
+                    }
+                    if($('#goandaway').prop('checked') == true) {
+                      alert("true")
+                      var data = {
+                        from: $('#from').val(),
+                        to: $('#to').val(),
+                        number_of_seats: back_seat_number,
+                        price: $('#price').html(),
+                        flexability: $('#flexability').val(),
+                        volume_of_bag: localStorage.getItem("country_id"),
+                        back_seat_number: 1,
+                        potentiality_of_wandering: $('#potentiality_of_wandering').val(),
+                        home_date: $('#home_date').val(),
+                        home_time: $('#home_time').val(),
+                        is_away: 1,
+                        away_date: $('#away_date').val(),
+                        away_time: $('#away_time').val(),
+                        comments:$('comments').val()
+
+                      };
+                    }else{
+
+console.log("form "+$('#home_time').val())
+                      var data = {
+                        from: $('#from').val(),
+                        to: $('#to').val(),
+                        number_of_seats:back_seat_number,
+                        price: $('#price').html(),
+                        flexability: $('#flexability').val(),
+                        volume_of_bag: localStorage.getItem("country_id"),
+                        back_seat_number: 1,
+                        potentiality_of_wandering: $('#potentiality_of_wandering').val(),
+                        home_date: $('#home_date').val(),
+                        home_time:$('#home_time').val() ,
+                        is_away: 0,
+                        comments:$('comments').val()
+                      };
+                    }
+
+                    var link = 'http://dealandcode.com/blabla/blabla/public/api/offer/store?token='+localStorage.getItem("token");
+                    console.log("data " +data)
+                    $http.post(link, data).then(function (res) {
+                      var msg="Thanks, Added succesfully";
+                      alert("in fun4");
+                      $scope.response = res.data;
+                       alert("in fun3");
+
+                    });
+                  }
+
                 })
+  .controller('searchRideCtrl', function ($scope,$http,$state) {
+    var link = 'http://dealandcode.com/blabla/blabla/public/api/locations?token='+localStorage.getItem("token");
+    $http.get(link)
+      .then(function (response) {
+        console.log(  response.data.data.locations[0].name)
+        $scope.locations = response.data.data.locations;
+        console.log('Got some data: ',  response.data.data.locations);
+
+      })
+    $scope.sendFromTo =function () {
+      var link='http://dealandcode.com/blabla/blabla/public/api/offer/search?token='+localStorage.getItem("token");
+      var data = {
+        from: $('#from').val(),
+        to: $('#to').val(),
+      };
+      $http.post(link, data).then(function (res) {
+        $scope.response = res.data;
+        // $location.path('#/templates/login.html');
+        //alert("bosy")
+        $state.go('modetElr7la');
+      });
+    }
+  })
         .controller('PlaylistCtrl', function ($scope, $stateParams) {
         });

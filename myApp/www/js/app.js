@@ -27,6 +27,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   var version = "v2.8"; // or leave blank and default is v2.0
   $cordovaFacebookProvider.browserInit(appID, version);
 });*/
+
+
   $stateProvider
 
     .state('app', {
@@ -42,6 +44,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/login.html'
     //  }
       //}
+    })
+    .state('index', {
+      url: '/index',
+
+      templateUrl: 'templates/index.html'
+
     })
     .state('countries', {
           url: '/countries',
@@ -86,6 +94,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
             }
           })
+    .state('app.searchRide', {
+      url: '/searchRide',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/searchRide.html',
+          controller: 'searchRideCtrl'
+        }
+      }
+    })
   .state('app.search', {
     url: '/search',
     views: {
@@ -101,7 +118,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
        templateUrl : 'templates/reg.html',
           controller: 'regCtrl'
         //}
-    })
+    }).
+  state('modetElr7la', {
+    url: '/modetElr7la',
+
+    templateUrl : 'templates/modetElr7la.html',
+    controller: 'searchRideCtrl'
+
+  })
   .state('app.browse', {
       url: '/browse',
       views: {
@@ -132,8 +156,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('countries');
   if(localStorage.getItem("token")){
-    $urlRouterProvider.otherwise('/app/takeDrive');
-    
+    //$urlRouterProvider.otherwise('/app/takeDrive');
+    $urlRouterProvider.otherwise('/index');
+
   }
   else{$urlRouterProvider.otherwise('security');}
 });

@@ -1,0 +1,27 @@
+    <ion-view >
+  <ion-content>
+      <!-- ابحث عن مواصلة-->
+     <div class="list">
+
+  <label class="item item-icon-right" href="#">
+    <i id="green" class="icon ion-android-radio-button-off"></i>
+    <select id="from" name="from">
+      <option ng-repeat="location in locations" value="{{location.id}}">{{location.name}}</option>
+
+    </select>
+  </label>
+
+<label class="item item-icon-right" href="#">
+    <i id="red" class="icon ion-android-radio-button-off"></i>
+  <select id="to" name="from">
+    <option ng-repeat="location in locations" value="{{location.id}}">{{location.name}}</option>
+
+  </select>
+  </label>
+
+      </div>
+      <button class="col-90 button button-full button-positive" ng-click="sendFromTo()">
+       بحث
+    </button>
+  </ion-content>
+</ion-view>
