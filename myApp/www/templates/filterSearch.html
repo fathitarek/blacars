@@ -1,0 +1,55 @@
+<ion-view>
+    <ion-content ng-controller="filterSearchCtrl">
+        <div class="card">
+            <h5><b>التاريخ</b></h5>
+            <small>اختار</small>
+
+            <h5>النطاق الزمني</h5>
+            <div class="list">
+                <div class="item range range-positive">
+                    <small>00.00</small>
+                    <input type="range" name="volume" min="0" max="100" value="33">
+                    <small>00.00</small>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5><b>المقاعد</b></h5>
+            <small>اختار</small>
+
+            <h5> السعر لكل راكب</h5>
+            <div class="list">
+                <div class="item range range-positive">
+                    <small>00.00</small>
+                    <input type="range" name="volume" min="0" max="100" value="33">
+                    <small>00.00</small>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5><b>الوقت المتفق علية</b></h5>
+            <small>الكل</small>
+        </div>
+        <div class="card">
+            <ul class="list">
+                <li class="item item-checkbox">
+                    <label style="float:left;">
+                        <input type="checkbox">
+                    </label>
+                    اخفاء السائقين الذين ليس لديهم صورة
+                </li> 
+
+                <li class="item item-checkbox">
+                    <label style="float:left;">
+                        <input type="checkbox">
+                    </label>
+                    اخفاء الرحلات الكاملة
+                </li> 
+            </ul>
+        </div>
+
+        <button class="col-90 button button-full button-positive">
+            فعل التصفية
+        </button>
+    </ion-content>
+</ion-view>

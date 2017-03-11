@@ -2,7 +2,7 @@
   <ion-content>
     <!-- مدة الرحلة-->
     <div class="bar bar-header bar-light">
-      <h3 class="right"> لندن>> مانشستر</h3>
+      <h3 class="right"><span class="fromh"></span>  >> <span class="toh"></span></h3>
       <a href="#/app/searchRide"><i id="left" class="icon ion-chevron-left"></i> </a>
     </div>
     <div class="container">
@@ -15,32 +15,41 @@
     </div>
 
     <br><br>
-    <div class="bar bar-positive" style="position: initial;">
-      <h5 class="new-bar"> 26 فبراير 2016 </h5>
-    </div>
 
-    <div class="list">
+
+    <div class="list" ng-init="sendFromTo()">
       <!--repet-this-part-->
-      <div class="row padding-right">
+     <!-- <div ng-repeat="offer_rides in response">-->
+      <!--start-->
+      <div ng-repeat="offer_rides in dataset">
+        <div class="bar bar-positive" style="position: initial;">
+          <h5 class="new-bar"> {{offer_rides.times[0].date }} </h5>
+        </div>
+      <div class="row padding-right"  >
         <div class="col col-75">
-          <h6>مانشستر 18:00</h6>
-          <h6>لندن 20:00</h6>
-          <h6><small>باقي 2 مقعد فقط</small></h6>
+          <h6 id="fromTime"><span class="fromd"></span> {{offer_rides.times[0].time }}</h6>
+          <h6 id="toTime"><span class="tod"></span> {{offer_rides.times[1].time }}</h6>
+          <h6><small>باقي <span id="number_of_seatsh"> {{offer_rides.number_of_seats}}</span> مقعد فقط</small></h6>
         </div>
         <div class="col">
-          <p class="item item-icon-lef border">15 ريال</p>
+          <p class="item item-icon-lef border"><span id="priceh">{{offer_rides.price}}</span> ريال</p>
         </div>
       </div>
       <a class="item item-thumbnail-right" href="#">
-        <img src="../img/driver.png">
-        <h2><b>امجد امين - 27 سنة</b></h2>
-        <p class="item item-icon-right border"><i class="icon ion-star"></i>تقيم 4.7/5</p>
+        <img src="{{offer_rides.user.image}}">
+        <h2><b><span > {{offer_rides.user.firstname}}</span>  <span > {{offer_rides.user.lastname}}</span>- <span > {{offer_rides.user.age}}</span> سنة</b></h2>
+        <p class="item item-icon-right border"><i class="icon ion-star"></i>تقيم <span> {{offer_rides.user.rate}}</span>/5</p>
        <!-- <i id="left" class="icon ion-ios-pulse-strong"></i>-->
       </a>
+      </div>
+      <hr>
+<!--end-->
+      <!--<div class="bar bar-positive" style="position: initial;">
+        <h5 class="new-bar"> </h5>
+      </div>-->
       <!--==================================-->
-
-
-
     </div>
+    <a href="#/filterSearch" class="col-90 button button-full button-positive">تصفيه</a>
+    
   </ion-content>
 </ion-view>

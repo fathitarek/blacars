@@ -441,18 +441,29 @@ console.log("form "+$('#home_time').val())
 
       })
     $scope.sendFromTo =function () {
+        
       var link='http://dealandcode.com/blabla/blabla/public/api/offer/search?token='+localStorage.getItem("token");
       var data = {
         from: $('#from').val(),
         to: $('#to').val(),
       };
+    
       $http.post(link, data).then(function (res) {
-        $scope.response = res.data;
-        // $location.path('#/templates/login.html');
-        //alert("bosy")
+           $('.fromd').html($('.fromh').html());
+      $('.tod').html($('.toh').html());
+        $scope.dataset = res.data.data.offer_rides;
+        console.log($scope.dataset);
+
         $state.go('modetElr7la');
       });
     }
+//$scope.getData=function(){}
+    $('.fromh').html($('#from :selected').text());
+    $('.toh').html($('#to :selected').text());
+    $('.fromd').html($('.fromh').html());
+    $('.tod').html($('.toh').html());
+  }) .controller('filterSearchCtrl', function ($scope,$http,$state) {
+      
   })
         .controller('PlaylistCtrl', function ($scope, $stateParams) {
         });

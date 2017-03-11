@@ -125,6 +125,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl : 'templates/modetElr7la.html',
     controller: 'searchRideCtrl'
 
+  }).
+          state('filterSearch', {
+    url: '/filterSearch',
+    templateUrl : 'templates/filterSearch.html',
+    controller: 'filterSearchCtrl'
   })
   .state('app.browse', {
       url: '/browse',
@@ -156,7 +161,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('countries');
   if(localStorage.getItem("token")){
-    //$urlRouterProvider.otherwise('/app/takeDrive');
+    //$urlRouterProvider.otherwise('/filterSearch');
     $urlRouterProvider.otherwise('/index');
 
   }
