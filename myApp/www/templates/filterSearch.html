@@ -1,5 +1,9 @@
 <ion-view>
     <ion-content ng-controller="filterSearchCtrl">
+        <div class="bar bar-header bar-light">
+      <h3 class="right">تصفيه البحث</h3>
+      <a href="#/modetElr7la"><i id="left" class="icon ion-chevron-left"></i> </a>
+    </div>
         <div class="card">
             <h5><b>التاريخ</b></h5>
             <small>اختار</small>
@@ -7,9 +11,11 @@
             <h5>النطاق الزمني</h5>
             <div class="list">
                 <div class="item range range-positive">
-                    <small>00.00</small>
-                    <input type="range" name="volume" min="0" max="100" value="33">
-                    <small>00.00</small>
+                    <small>00:00</small>
+                <input type="range" id="time" steps="1" name="volume" min="0" max="100" value="33">
+                
+                
+                    <small>23:59</small>
                 </div>
             </div>
         </div>
@@ -20,9 +26,9 @@
             <h5> السعر لكل راكب</h5>
             <div class="list">
                 <div class="item range range-positive">
-                    <small>00.00</small>
-                    <input type="range" name="volume" min="0" max="100" value="33">
-                    <small>00.00</small>
+                    <small>0</small>
+                    <input type="range" name="volume" min="0" max="100">
+                    <small>100</small>
                 </div>
             </div>
         </div>
@@ -34,14 +40,14 @@
             <ul class="list">
                 <li class="item item-checkbox">
                     <label style="float:left;">
-                        <input type="checkbox">
+                        <input type="checkbox" id="x">
                     </label>
                     اخفاء السائقين الذين ليس لديهم صورة
                 </li> 
 
                 <li class="item item-checkbox">
                     <label style="float:left;">
-                        <input type="checkbox">
+                        <input type="checkbox" id="y">
                     </label>
                     اخفاء الرحلات الكاملة
                 </li> 

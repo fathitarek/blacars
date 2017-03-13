@@ -32,15 +32,15 @@
           <h6><small>باقي <span id="number_of_seatsh"> {{offer_rides.number_of_seats}}</span> مقعد فقط</small></h6>
         </div>
         <div class="col">
-          <p class="item item-icon-lef border"><span id="priceh">{{offer_rides.price}}</span> ريال</p>
+          <p class="item item-icon-lef border green"><span id="priceh">{{offer_rides.price}}</span> ريال</p>
         </div>
       </div>
-      <a class="item item-thumbnail-right" href="#">
+      <div class="item item-thumbnail-right" href="#">
         <img src="{{offer_rides.user.image}}">
         <h2><b><span > {{offer_rides.user.firstname}}</span>  <span > {{offer_rides.user.lastname}}</span>- <span > {{offer_rides.user.age}}</span> سنة</b></h2>
-        <p class="item item-icon-right border"><i class="icon ion-star"></i>تقيم <span> {{offer_rides.user.rate}}</span>/5</p>
+        <p class="item item-icon-right border"><i class="icon ion-star yellow"></i>تقيم <span> {{offer_rides.user.rate}}</span>/5</p>
        <!-- <i id="left" class="icon ion-ios-pulse-strong"></i>-->
-      </a>
+      </div>
       </div>
       <hr>
 <!--end-->
@@ -49,7 +49,7 @@
       </div>-->
       <!--==================================-->
     </div>
-    <a href="#/filterSearch" class="col-90 button button-full button-positive">تصفيه</a>
+    <a href="#/filterSearch" class="col-90 button button-full button-positive m-but">تصفيه</a>
     
   </ion-content>
 </ion-view>

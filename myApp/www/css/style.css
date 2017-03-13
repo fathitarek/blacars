@@ -65,9 +65,10 @@ container2{margin-left:40px;}
 /*.popup-container .popup{ width: 370px;    margin-bottom: 60%;}*/
 .social-button-square-facebook {
     color: #fff;
-    background-color: red;
+    background-color: #3B5998;
     border-color: rgba(0,0,0,0.2);
 }
+.blue{color: #177ee7;}
 .popup{
 width: 350px;
 border-radius: 10px;
@@ -264,10 +265,15 @@ display: block;
     color:#4abb61;
     font-weight: bolder;
 }
+.green{
+    color:#4abb61;
+    font-weight: bolder;
+}
 #red{
     color:#fa474a;
     font-weight: bolder;
 }
+.yellow{color: yellow;}
 .typeahead{height: 500px;}
 a.item{float: right;}
 #comment{width: 100%; display: block; background-color: #e2e3e4;
@@ -385,7 +391,9 @@ background-color: #fff;
   margin-top: 0px;
   padding: 5px;
 }
-
+.m-but{float:none;}
+.f-but{margin-right: -5px;}
+.padding-right{padding-right: 20px;}
 @media screen and (max-width : 1024px){
   table{
   margin-right: 40%;
