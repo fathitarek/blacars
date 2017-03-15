@@ -1,14 +1,15 @@
 <ion-view view-title="">
-  <!--<ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>-->
+  <ion-header-bar>
+   <a id="list-icon">
+      <i class="icon ion-chevron-left left"></i>
+    </a>
+  </ion-header-bar>
+  
   <ion-content>
+    
     <!-- registration-word -->
 <div class="container"  ng-controller="AppCtrl">
-<h1 class="title" ng-click="reg()" >تسجيل الدخول</h1>
+    <h3 class="title"><a class="regstration-link" href="#/reg" >تسجيل الدخول</a></h3>
 <!-- facebook-button -->
 
   <button class="button button-full social-button-square-facebook  f-but" ng-click="loginFacebook()">
@@ -24,7 +25,11 @@
   </tr>
 </tbody>
 </table>
-    <form name="login" novalidate >
+<br>
+    <div  id="err" class="alert alert-danger" style="visibility: hidden; display: none;">
+        <strong>خطا!</strong> البريد الالكتروني و كلمة المرور خطا! .
+    </div>
+    <form name="login" novalidate>
      <!-- <div class="list">
         <label class="item item-input">
           <span class="input-label">Username</span>
@@ -59,6 +64,8 @@
 <div class="w3-container" ng-controller="AppCtrl">
   <a class="forget-password" ng-click="showPopup()"> هل نسيت كلمة المرور؟ </a>
 
+  
+  
  <!-- <div id="id01" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">
@@ -91,11 +98,7 @@
     </select>
 -->
 <div>
-<span >{{profile.firstname}}</span><br>
-<span >{{profile.lastname}}</span><br>
-<span >{{profile.email}}</span><br>
-<span >{{profile.gender}}</span><br>
 </div>
   </ion-content>
 </ion-view>
->
+

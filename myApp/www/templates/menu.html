@@ -12,45 +12,46 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="right" >
+  <ion-side-menu side="right">
    <ion-header-bar class="bar-stable">
-     <img src="img/القائمه.png">
+       <img class="img-circle" src="img/ionic.png">
+ 
+       <a id="title person-name" class="title padding-top" href="#/app/editProfile" menu-close>{{profile.firstname}} {{profile.lastname}}</a>
 
-      <h1 id="title" class="title" >{{profile.firstname}} {{profile.lastname}}</h1>
-
-        <i id="setting" class="icon ion-gear-a"></i>
+       <i id="setting" class="icon ion-gear-a left padding-top"></i>
 
     </ion-header-bar>
 
     <ion-content>
-      <ion-list>
-          <ion-item class="menu-item" menu-close href="#/app/takeDrive">
+      <ion-list id="menu-list">
+         <!-- <ion-item class="menu-item" menu-close href="#/app/takeDrive">
           <i class="icon ion-android-car"></i>
           رحلاتك السابقة
         </ion-item>
-          +++++++
+         
           <ion-item class="menu-item" menu-close href="#/app/editProfile">
           <i class="icon ion-android-car"></i>
           رحلاتك السابقة
-        </ion-item>
-          ========
-        <ion-item class="menu-item" menu-close href="#/app/login">
+        </ion-item>-->
+          
+        <ion-item class="menu-item" menu-close style="padding-right: 50px;">
           <i class="icon ion-android-car"></i>
           رحلاتك السابقة
         </ion-item>
-         <ion-item id="car-request" class="menu-item" menu-close ng-click="reg()">
+         <ion-item id="car-request" class="menu-item" menu-close href="#/app/takeDrive">
            <i class="icon ion-ios-plus-outline"></i>
           اطلب مواصلة
         </ion-item>
-        <ion-item class="menu-item" menu-close href="#/app/search">
+        <ion-item class="menu-item" menu-close href="#">
           <i class="icon ion-ios-star"></i>
           التقيم
         </ion-item>
-        <ion-item class="menu-item" menu-close href="#/app/browse">
+        <ion-item class="menu-item" menu-close href="#">
           <i class="icon ion-email"></i>
           صندوق الوارد
         </ion-item>
-        <ion-item class="menu-item" menu-close href="#/app/playlists">
+         <!-- #/app/playlists -->
+        <ion-item class="menu-item" menu-close href="#">
           <i class="icon ion-ios-help-outline"></i>
           اطلب مساعدة
         </ion-item>

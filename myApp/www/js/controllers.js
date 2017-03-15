@@ -20,18 +20,18 @@ angular.module('starter.controllers', [])
                 $state.go('reg');
 
             }
-            $scope.doReg = function (firstname, password, email, gender) {
+            $scope.doReg = function (firstname,lastname, password, email, gender) {
 
                 var data = {
                     firstname: firstname,
-                    lastname: "lastname",
+                    lastname: lastname,
                     password: password,
                     email: email,
                     gender: gender,
                     country_id: localStorage.getItem("country_id"),
 
                 };
-                alert(data.email);
+               // alert(data.email);
                 var link = 'http://dealandcode.com/blabla/blabla/public/api/register';
                 var headers = {
                     'Authorization': 'Basic ',
@@ -40,16 +40,22 @@ angular.module('starter.controllers', [])
                 };
 //{firstname:$scope.data.firstname,lastname:$scope.data.lastname,password:$scope.data.password,email:$scope.data.email,country_id:$scope.data.country_id}
                 $http.post(link, data).then(function (res) {
-                    alert("in fun4");
+                   // alert("in fun4");
                     //alert(res);
                     //alert(res.data)
                     $scope.response = res.data;
                     // alert("in fun3");
                     $state.go('login');
-                });
-            }
-
-        })
+                },function (error) {
+                    //console.log($scope.response.data.token)
+                    //localStorage.setItem("token", $scope.response.data.token);
+                   
+                    $('#err').css('display', 'block');
+                   $('#err').css('visibility', 'visible');
+                  // $('#').html();
+                })
+        }
+    })
         .controller('AppCtrl', function ($scope, $ionicPopup, $timeout, $http, $location, $state) {
             // Triggered on a button click, or some other target
             $scope.out = function () {
@@ -139,15 +145,24 @@ angular.module('starter.controllers', [])
                 var link = 'http://dealandcode.com/blabla/blabla/public/api/login';
                 $http.post(link, data).then(function (res) {
                     $scope.response = res.data;
+//                    if(!$scope.response){       alert("token is :")
+//                    
+//                    $('#err').css('display', 'block');
+//                $('#err').css('visibility', 'visible');}
                     // $location.path('#/templates/login.html');
-                    alert("bosy")
-                }).then(function () {
+                    //alert("bosy")
                     console.log($scope.response.data.token)
                     localStorage.setItem("token", $scope.response.data.token);
-                    alert("token is :" + localStorage.getItem("token"))
-                    $state.go('app.addCar');
+                    //alert("token is :" + localStorage.getItem("token"))
+                    $state.go('index');
+                },(function (error) {
+                    //console.log($scope.response.data.token)
+                    //localStorage.setItem("token", $scope.response.data.token);
+                   
+                    $('#err').css('display', 'block');
+                   $('#err').css('visibility', 'visible');
                 })
-            };
+            )};
 
             $scope.loginFacebook = function () {
                 /*  $cordovaOauth.facebook("1866432703602132", ["email", "read_stream", "user_website", "user_location", "user_relationships"]).then(function(result) {
@@ -163,7 +178,7 @@ angular.module('starter.controllers', [])
                  console.log(full_name)
                  });*/
 
-                alert("hey")
+               // alert("hey")
             };
 
 
@@ -246,9 +261,9 @@ angular.module('starter.controllers', [])
                     //console.log("Data"+data.brand,data.color,data.entertainment ,data.number_of_seats,data.type)
                     var link = 'http://dealandcode.com/blabla/blabla/public/api/car/store?token=' + localStorage.getItem("token");
                     var headers = {'Authorization': 'Basic ', 'Accept': 'application/json; charset=utf-8', 'Content-Type': 'application/json; charset=utf-8'};
-                    alert("in fun3");
+                   // alert("in fun3");
                     $http.post(link, data).then(function (res) {
-                        alert("in fun4");
+                       // alert("in fun4");
                         //alert(res);
                         //alert(res.data);
                         $scope.response = res.data;
@@ -270,9 +285,10 @@ angular.module('starter.controllers', [])
                         $('#firstname').val(response.data.data.user.firstname)
                         $('#lastname').val(response.data.data.user.lastname)
                         $('#email').val(response.data.data.user.email)
-
+                        $('#birthdate').val(response.data.data.user.birthdate)
+                        $('#gender :selected').val(response.data.data.user.gender)
                         $scope.editprofile = function () {
-                            var data = {firstname: $("#firstname").val(), lastname: $("#lastname").val(), birthdate: "2016-12-08", brief: $("#brief").val(), gender: $('#gender').val()};
+                            var data = {firstname: $("#firstname").val(), lastname: $("#lastname").val(), birthdate: $("#birthdate").val(), brief: $("#brief").val(), gender: $('#gender').val()};
                             var link = 'http://dealandcode.com/blabla/blabla/public/api/profile/update?token=' + localStorage.getItem("token");
                             $http.post(link, data).then(function (response) {
 
@@ -356,7 +372,7 @@ angular.module('starter.controllers', [])
 
 
                 if ($('#condation').prop('checked') === true) {
-                    alert("L");
+                   // alert("L");
                     $('#publish').prop("disabled", false);
                 } else {
                     $('#publish').prop("disabled", true);
@@ -424,9 +440,9 @@ angular.module('starter.controllers', [])
                 console.log("data " + data)
                 $http.post(link, data).then(function (res) {
                     var msg = "Thanks, Added succesfully";
-                    alert("in fun4");
+                   // alert("in fun4");
                     $scope.response = res.data;
-                    alert("in fun3");
+                   // alert("in fun3");
 
                 });
             }
@@ -467,18 +483,19 @@ angular.module('starter.controllers', [])
         .controller('filterSearchCtrl', function ($scope, $http, $state) {
             var x,y;
             $('#time').change(function (){
-               alert( $('#time').val())
+               //alert( $('#time').val())
             })
             $('#x').change(function (){
                  if ($("#x").prop('checked') == true) {
                     x = 1;
-                    alert(x)
-                }else{x=0; alert(x)}
+                    //alert(x)
+                }else{x=0; 
+                }
             })
             $('#y').change(function (){
                  if ($("#y").prop('checked') == true) {
                     y = 1;
-                    alert(y)
+                    //alert(y)
                 }else{y=0; alert(y)}
             })
             $scope.search = function () {

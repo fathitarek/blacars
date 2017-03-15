@@ -31,10 +31,14 @@
     <form  name="login" novalidate>
       <div class="list">
       <label class="item item-input ">
-    <input type="text" ng-model="firstname" name="firstname"  ng-minlength="3" placeholder="الاسم"required>
+    <input type="text" ng-model="firstname" name="firstname"  ng-minlength="3" placeholder="الاسم الاول"required>
     </label>
      <label class="error-msg" ng-show="login.firstname.$error.minlength">يجب ان يكون الاسم مكون من 3 احرف على الاقل </label>
 
+<label class="item item-input ">
+    <input type="text" ng-model="lastname" name="lastname"  ng-minlength="3" placeholder=" الاسم الاخير "required>
+    </label>
+     <label class="error-msg" ng-show="login.lastname.$error.minlength">يجب ان يكون الاسم مكون من 3 احرف على الاقل </label>
 
 <label class="item item-input item-stacked-label">
     <input type="text" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" ng-model="email" name="email" placeholder="البريد الالكتروني"  required>
@@ -73,14 +77,13 @@
     </div>
 <div class="row">
   	<button id="regstration" class="button button-full button-positive"
-     ng-click="doReg(firstname,password,email,gender)"  ng-disabled="login.$invalid"
+     ng-click="doReg(firstname,lastname,password,email,gender)"  ng-disabled="login.$invalid"
       role="button">تسجيل</button>
   </div>
 
     </form>
-  <!--   <p>Output Message : {{gender}}</p>
-             <p>StatusCode: {{statusval}}</p>
-             <p>Status: {{statustext}}</p>
-             <p>Response Headers: {{headers}}</p>-->
+<div  id="err" class="alert alert-danger" style="visibility: hidden;  display: none;">
+    <strong>Faild!</strong> <span id="msg"></span>
+    </div>
   </ion-content>
 </ion-view>

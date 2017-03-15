@@ -187,13 +187,18 @@ h3{
   font-size: 16px;
   font-weight: bold;
 }
-#title{text-align: right;}
+#title{text-align: right; color: #fff;}
 .menu-item{text-align: right; background-color:transparent; border: none;  color:#fff;}
-#setting{float:left; display: inline-block;}
+#setting{float:left; display: inline-block; color:#fff; font-size: 20px;}
 .menu .bar-header{background-color: #177ee7;  height: 100px;}
 .item-complex .item-content, .item-radio .item-content{color:#fff;}
-#car-request{padding-right: 45px;}
+#car-request{padding-right: 0px;}
 .menu .scroll-content{position: relative;}
+#menu-list{position: relative; top: 50px;}
+#menu-list ion-item:focus ,
+#menu-list ion-item:active
+{background-color: #fff; width: 100%;}
+#person-name{float: none;}
 /**/
 .right{
   display: inline-block;
@@ -239,7 +244,15 @@ h3{
     position: relative;
 }
 #personal-img{width: 100%; height: 50px; z-index: 0; position: absolute;}
-#edit{position:relative; bottom: 0px; right: 0px; width: 10px; z-index: 1; position: absolute; background-image:url("../images/edit_03.png"); background-position: center;}
+#edit{
+    position:relative; 
+    bottom: 0px; 
+    right: 0px; 
+    width: 10px; 
+    z-index: 1; 
+    position: absolute; 
+    background-image:url("../img/edit_03.png"); 
+    background-position: center;}
 h5.new-bar{
 display: block;
     position: absolute;
@@ -287,7 +300,8 @@ a.item{float: right;}
   background-color: #e2e3e4;}
 #decrease , #increase , #descraseSet {color: #387ef5;}
 #go-back{display: initial;}
-#seet-num{display: inline-block;}
+.seet-num{display: inline-block; margin-right: 20px;}
+input[type="checkbox"]{transform: scale(2); margin-left: 10px;}
 .details{margin: 5px;}
 /**/
 /*main-page*/
@@ -394,6 +408,13 @@ background-color: #fff;
 .m-but{float:none;}
 .f-but{margin-right: -5px;}
 .padding-right{padding-right: 20px;}
+.money{left:20px;}
+.regstration-link{float:none;}
+.width-100{width: 100%;}
+#firstname , #lastname , #brief , #email , #phone{border-bottom: 1px solid #eee;}
+.emailIcon{color: #000; font-size: 24px;}
+.dis-inital{display: initial;}
+.img-circle{width:100px;}
 @media screen and (max-width : 1024px){
   table{
   margin-right: 40%;
