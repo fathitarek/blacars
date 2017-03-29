@@ -1,0 +1,157 @@
+<ion-view>
+    <ion-content ng-init="byanat3rd(id)">
+       <!--عرض و طلب-->
+      <div class="bar bar-positive" style="position: initial;">
+          <h5 class="new-bar">الخميس . 4 ابريل - 2010</h5>
+    </div>
+       <div class="row padding-right">
+    <div class="col col-75">
+        <h6><span id="from_location"></span> <span id="from_time"></span></h6>
+        <h6><span id="to_location"></span> <span id="to_time"></span></h6>
+    <h6><small>باقي <span id="block_number_of_seats"></span> مقعد فقط</small></h6>
+    </div>
+    <div class="col">
+        <p class="item item-icon-lef border green"><span id="block_price"></span> ريال</p>
+    </div>
+    </div>
+    <div class="bar bar-positive" style="position: initial;">
+          <h5 class="new-bar">التعليقات</h5>
+    </div>
+       <!--
+    <div class="container">
+    <div class="list">
+  <label class="item item-input item-stacked-label">
+    <span class="input-label"><b>كتابة تعليق عن الركوب هنا</b></span>
+   <div class="gray"> . برجاء اضافة تفاصيل حول رحلتك انها سوف توفر لك الاجابة علي الكثير من اسئلة الاعضاء</div>
+  </label>
+   <div class="item2">
+<div class="icon-right ion-bag">متوسط حجم الامتعة</div>
+    <div class="padding item-icon-left" href="#">
+    <i class="icon ion-chevron-down downIcon"></i>
+   متوسط
+  </div>
+   </div>
+ <div class="item2">
+<div class="icon-right ion-android-time">مرونة موعد الاقلاع</div>
+   <div class="padding item-icon-left" href="#">
+    <i class="downIcon icon ion-chevron-down"></i>
+   في الوقت المحدد 
+  </div>
+   </div>     
+    </div>
+    </div>
+-->
+    <div class="row">
+          <label id="comment" class="item item-input item-stacked-label">
+            <span class="input-label">كتابة تعليقات علي الركوب هنا</span>
+            <textarea placeholder="رجاء اضاغة التفاصيل حول رحلتك - انها سوف توفر لك الاجابة علي الكثير من الاسئلة من الاعضاء"></textarea>
+          </label>
+        </div>
+    <div class="">
+            <div class="item item-icon-left item-icon-right" href="#">
+          <label class="details"> متوسط حجم الامتعة ديه</label>
+          <i class="icon ion-bag blue-icon" ></i>
+            </div>
+        <div class="item2">
+           <div class="padding item-icon-left" >
+            <i class="downIcon icon ion-chevron-down" id="block_volume_of_bag"></i>
+           
+          </div>
+        </div>
+            <div class="item item-icon-left item-icon-right" >
+          <label class="details"> مرونة موعد الاقلاع </label>
+            <i class="icon ion-ios-clock-outline blue-icon"></i>
+            </div>
+        <div class="item2"> 
+          <div class="padding item-icon-left" >
+              <i class="downIcon icon ion-chevron-down" id="flexability"></i>
+            
+          </div>
+        </div>
+          </div>
+    <div class="bar bar-positive" style="position: initial;">
+          <h5 class="new-bar">بيانات السيارة</h5>
+    </div>
+    <div class="">
+    <div class="row" >
+        <div class="col col-25"><img class="img-responsive" src="../img/car-image-21.jpg"></div>
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">النوع : </span>
+                <span id="car_brand"></span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">اللون : </span>
+                <span id="car_color"></span>
+            </label>
+        </div>
+    </div>
+    </div>
+    <div class="bar bar-positive" style="position: initial;">
+          <h5 class="new-bar">عدد مرات رؤية العرض</h5>
+    </div>
+     <div class="">
+            <div class="item item-icon-left item-icon-right" href="#">
+          <label class="details">مرة واحدة فقط</label>
+              <i class="icon ion-android-car blue-icon"></i>
+            </div>
+        <div class="item2">
+           <div class="padding item-icon-left" href="#">
+            <i class="icon ion-chevron-down downIcon"></i>
+         ذهاب لمرة واحدة او مع عودة
+          </div>
+        </div>
+            <div class="item item-icon-left item-icon-right" href="#">
+          <label class="details">غالبا </label>
+            <i class="icon ion-ios-clock-outline blue-icon"></i>
+            </div>
+        <div class="item2"> 
+          <div class="padding item-icon-left" href="#">
+            <i class="downIcon icon ion-chevron-down"></i>
+            تقديم العديد من الجولات في وقت واحد
+            <!--<span id="⁠⁠⁠potentiality"> </span> -->
+          </div>
+        </div>
+          </div>
+    <hr>
+    <div class="list">
+        <a id="driverSelect" class="item item-thumbnail-right" href="#">
+      <img id="user_img">
+        <h2><b><span class="block_fname"> </span>  <span  class="block_lname"> </span>- <span class="block_age"></span> سنة</b></h2>
+        <p class="item item-icon-right border"><i class="icon ion-star yellow"></i>تقيم <span id="block_rate"></span>/5</p>
+      <i id="left" class="icon"><img class="imd-responsive"  src="../img/time-icon_03.png"></i>
+    </a>
+    <label class="item item-input">
+          <span class="input-label">تاريخ التسجيل : </span>
+          <span id="created_at"></span>
+    </label>
+    <label class="item item-input">
+        <span class="input-label">متصل منذ <span id="online"> </span> </span>
+    </label>   
+    </div>
+    <!--
+    <ul class="list">
+       <li class="item item-checkbox">
+    <label style="float:left;">
+        <input type="checkbox">
+    </label>
+           <b class="selectItems">التدخين</b>
+        </li>
+         <li class="item item-checkbox">
+    <label style="float:left;">
+        <input type="checkbox">
+    </label>
+             <b class="selectItems">التاكيد من رقم هاتف العارض</b>
+        </li>
+         <li class="item item-checkbox">
+    <label style="float:left;">
+        <input type="checkbox">
+    </label>
+             <b class="selectItems">التاكيد من بريد الالكتروني العارض</b>
+        </li>
+    </ul>-->
+       <div class="row container">
+        <button class="col-90 button button-positive">حجز</button>
+    </div> 
+    </ion-content>
+</ion-view>

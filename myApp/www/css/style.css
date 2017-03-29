@@ -415,6 +415,25 @@ background-color: #fff;
 .emailIcon{color: #000; font-size: 24px;}
 .dis-inital{display: initial;}
 .img-circle{width:100px;}
+.gray{
+    color: #e2e3e4;
+}
+.item2{
+background-color: #fff;
+color: #444;
+position: relative;
+z-index: 2;
+display: block;
+margin: -1px;
+padding: 16px;
+font-size: 12px;
+}
+.item-icon-left .icon, .item-icon-right .icon{font-size: initial;}
+i.downIcon{
+    font-size: 10px;
+}
+#driverSelect{width: 100%;}
+.selectItems{font-size: 14px;}
 @media screen and (max-width : 1024px){
   table{
   margin-right: 40%;

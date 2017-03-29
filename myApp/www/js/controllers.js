@@ -20,7 +20,7 @@ angular.module('starter.controllers', [])
                 $state.go('reg');
 
             }
-            $scope.doReg = function (firstname,lastname, password, email, gender) {
+            $scope.doReg = function (firstname, lastname, password, email, gender) {
 
                 var data = {
                     firstname: firstname,
@@ -31,7 +31,7 @@ angular.module('starter.controllers', [])
                     country_id: localStorage.getItem("country_id"),
 
                 };
-               // alert(data.email);
+                // alert(data.email);
                 var link = 'http://dealandcode.com/blabla/blabla/public/api/register';
                 var headers = {
                     'Authorization': 'Basic ',
@@ -40,22 +40,22 @@ angular.module('starter.controllers', [])
                 };
 //{firstname:$scope.data.firstname,lastname:$scope.data.lastname,password:$scope.data.password,email:$scope.data.email,country_id:$scope.data.country_id}
                 $http.post(link, data).then(function (res) {
-                   // alert("in fun4");
+                    // alert("in fun4");
                     //alert(res);
                     //alert(res.data)
                     $scope.response = res.data;
                     // alert("in fun3");
                     $state.go('login');
-                },function (error) {
+                }, function (error) {
                     //console.log($scope.response.data.token)
                     //localStorage.setItem("token", $scope.response.data.token);
-                   
+
                     $('#err').css('display', 'block');
-                   $('#err').css('visibility', 'visible');
-                  // $('#').html();
+                    $('#err').css('visibility', 'visible');
+                    // $('#').html();
                 })
-        }
-    })
+            }
+        })
         .controller('AppCtrl', function ($scope, $ionicPopup, $timeout, $http, $location, $state) {
             // Triggered on a button click, or some other target
             $scope.out = function () {
@@ -155,14 +155,15 @@ angular.module('starter.controllers', [])
                     localStorage.setItem("token", $scope.response.data.token);
                     //alert("token is :" + localStorage.getItem("token"))
                     $state.go('index');
-                },(function (error) {
+                }, (function (error) {
                     //console.log($scope.response.data.token)
                     //localStorage.setItem("token", $scope.response.data.token);
-                   
+
                     $('#err').css('display', 'block');
-                   $('#err').css('visibility', 'visible');
+                    $('#err').css('visibility', 'visible');
                 })
-            )};
+                        )
+            };
 
             $scope.loginFacebook = function () {
                 /*  $cordovaOauth.facebook("1866432703602132", ["email", "read_stream", "user_website", "user_location", "user_relationships"]).then(function(result) {
@@ -178,7 +179,7 @@ angular.module('starter.controllers', [])
                  console.log(full_name)
                  });*/
 
-               // alert("hey")
+                // alert("hey")
             };
 
 
@@ -261,9 +262,9 @@ angular.module('starter.controllers', [])
                     //console.log("Data"+data.brand,data.color,data.entertainment ,data.number_of_seats,data.type)
                     var link = 'http://dealandcode.com/blabla/blabla/public/api/car/store?token=' + localStorage.getItem("token");
                     var headers = {'Authorization': 'Basic ', 'Accept': 'application/json; charset=utf-8', 'Content-Type': 'application/json; charset=utf-8'};
-                   // alert("in fun3");
+                    // alert("in fun3");
                     $http.post(link, data).then(function (res) {
-                       // alert("in fun4");
+                        // alert("in fun4");
                         //alert(res);
                         //alert(res.data);
                         $scope.response = res.data;
@@ -372,7 +373,7 @@ angular.module('starter.controllers', [])
 
 
                 if ($('#condation').prop('checked') === true) {
-                   // alert("L");
+                    // alert("L");
                     $('#publish').prop("disabled", false);
                 } else {
                     $('#publish').prop("disabled", true);
@@ -440,9 +441,9 @@ angular.module('starter.controllers', [])
                 console.log("data " + data)
                 $http.post(link, data).then(function (res) {
                     var msg = "Thanks, Added succesfully";
-                   // alert("in fun4");
+                    // alert("in fun4");
                     $scope.response = res.data;
-                   // alert("in fun3");
+                    // alert("in fun3");
 
                 });
             }
@@ -470,6 +471,8 @@ angular.module('starter.controllers', [])
                     $('.tod').html($('.toh').html());
                     $scope.dataset = res.data.data.offer_rides;
                     console.log($scope.dataset);
+                    window.localStorage.setItem("from_id", $("#from").val());
+                    window.localStorage.setItem("to_id", $("#to").val());
 
                     $state.go('modetElr7la');
                 });
@@ -481,33 +484,112 @@ angular.module('starter.controllers', [])
             $('.tod').html($('.toh').html());
         })
         .controller('filterSearchCtrl', function ($scope, $http, $state) {
-            var x,y;
-            $('#time').change(function (){
-               //alert( $('#time').val())
+            var user_image, disable_full;
+            $('#time').change(function () {
+                //alert( $('#time').val())
             })
-            $('#x').change(function (){
-                 if ($("#x").prop('checked') == true) {
-                    x = 1;
+            $('#user_image').change(function () {
+                if ($("#user_image").prop('checked') == true) {
+                    user_image = 1;
                     //alert(x)
-                }else{x=0; 
+                } else {
+                    user_image = 0;
                 }
             })
-            $('#y').change(function (){
-                 if ($("#y").prop('checked') == true) {
-                    y = 1;
+            $('#disable_full').change(function () {
+                if ($("#disable_full").prop('checked') == true) {
+                    disable_full = 1;
                     //alert(y)
-                }else{y=0; alert(y)}
+                } else {
+                    disable_full = 0;
+                    alert(disable_full)
+                }
             })
             $scope.search = function () {
                 var link = 'http://dealandcode.com/blabla/blabla/public/api/offer/search?token=' + localStorage.getItem("token");
                 var data = {
-                    from: $('#from').val(),
-                    to: $('#to').val(),
+                    from: localStorage.getItem("from_id"),
+                    to: localStorage.getItem("to_id"),
+                    date: $('#date').val(),
+                    price: {
+                        from: $('#fromPrice').val(),
+                        to: $('#toPrice').val(),
+                    },
+                    time: {
+                        from: $('#fromtime').val() + ":00",
+                        to: $('#totime').val() + ":00",
+                    },
+                    number_of_seats: $("#number_of_seats").val(),
+                    disable_full: disable_full,
+                    user_image: user_image,
                 };
-
+                //alert($('#fromtime').val())
                 $http.post(link, data).then(function (res) {
+                    $scope.dataset = res.data.data.offer_rides;
+                    console.log("Mydata " + $scope.dataset)
+                    //alert("Mydata " + $scope.dataset)
+                    // $('#success').css('display', 'block');
+                    // $('#success').css('visibility', 'visible');
+
+                    $state.go('modetElr7la2');
 
                 })
+
+            }
+            $scope.byanat3rd = function (id) {
+                alert(id)
+                var link = 'http://dealandcode.com/blabla/blabla/public/api/offer_ride/' + id + '?token=' + localStorage.getItem("token");
+                $http.get(link)
+                        .then(function (response) {
+                            console.log("get" + response.data.data.offer_ride)
+                            $scope.set = response.data.data.offer_ride;
+                            $scope.cars = response.data.data.offer_ride.cars;
+                            //console.log('Got some data: ', response.data.data.locations);
+//$state.go("byanat3rd")
+                            //$('.block_fname').text(response.data.data.offer_ride.user.firstname);
+                            setInterval(function () {
+                                $state.go("byanat3rd");
+                            }, 500);
+                            setInterval(function () {
+                                $('.block_fname').text(response.data.data.offer_ride.user.firstname);
+                                $('.block_lname').text(response.data.data.offer_ride.user.lastname);
+                                $("#user_img").attr("src", response.data.data.offer_ride.user.image);
+                                $('#block_price').text(response.data.data.offer_ride.price);
+                                $('.block_age').text(response.data.data.offer_ride.user.age);
+                                $('#block_number_of_seats').text(response.data.data.offer_ride.number_of_seats);
+                                $('#block_rate').text(response.data.data.offer_ride.user.rate);
+                                $('#block_volume_of_bag').text(response.data.data.offer_ride.volume_of_bag)
+                                $('#online').text(response.data.data.offer_ride.seen);
+                                $('#⁠⁠⁠potentiality').text(response.data.data.offer_ride.potentiality_of_wandering)
+                                $('#flexability').text(response.data.data.offer_ride.flexability)
+                                $('#from_location').text(response.data.data.offer_ride.from_location.name)
+                                $('#to_location').text(response.data.data.offer_ride.to_location.name)
+                                $('#from_time').text(response.data.data.offer_ride.times[0].time);
+                                $('#to_time').text(response.data.data.offer_ride.times[1].time);
+                                $('#created_at').text(response.data.data.offer_ride.user.created_at)
+                                 $('#car_color').text(response.data.data.offer_ride.cars[0].color);
+                                $('#car_brand').text(response.data.data.offer_ride.cars[0].model);
+
+                            }, 500);
+                        })
+
+//                $('.block_lname').text(lastname);
+//                $('.block_age').text(age);
+                /*
+                 setInterval(function(){ $state.go("byanat3rd");
+                 }, 500);
+                 setInterval(function(){
+                 $('.block_fname').text(firstname);
+                 $('.block_lname').text(lastname);
+                 $('.block_age').text(age);
+                 $('#block_number_of_seats').text(number_of_seats);
+                 $('#block_rate').text(rate);
+                 $('#block_price').text(price);
+                 }, 500);*/
+                //    $('#firstname').val(response.data.data.user.firstname)
+
+                // $state.go("byanat3rd");
+
             }
         })
         .controller('PlaylistCtrl', function ($scope, $stateParams) {

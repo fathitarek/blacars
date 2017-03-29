@@ -1,33 +1,57 @@
 <ion-view>
     <ion-content ng-controller="filterSearchCtrl">
         <div class="bar bar-header bar-light">
-      <h3 class="right">تصفيه البحث</h3>
-      <a href="#/modetElr7la"><i id="left" class="icon ion-chevron-left"></i> </a>
-    </div>
+            <h3 class="right">تصفيه البحث</h3>
+            <a href="#/modetElr7la"><i id="left" class="icon ion-chevron-left"></i> </a>
+        </div>
         <div class="card">
             <h5><b>التاريخ</b></h5>
             <small>اختار</small>
-
+            <input type="date" id="date" name="date"/>
             <h5>النطاق الزمني</h5>
             <div class="list">
                 <div class="item range range-positive">
-                    <small>00:00</small>
-                <input type="range" id="time" steps="1" name="volume" min="0" max="100" value="33">
-                
-                
-                    <small>23:59</small>
+                    <small>00</small>
+                    <input type="range" id="fromtime" steps="1" name="volume" min="0" max="24" value="33">
+
+
+                    <small>23</small>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item range range-positive">
+                    <small>00</small>
+                    <input type="range" id="totime" steps="1" name="volume" min="0" max="24" value="33">
+
+
+                    <small>23</small>
                 </div>
             </div>
         </div>
         <div class="card">
             <h5><b>المقاعد</b></h5>
             <small>اختار</small>
-
+            <select name="number_of_seats" id="number_of_seats">
+                <option value="0">لا يوجد</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
             <h5> السعر لكل راكب</h5>
+            <label>From</label>
             <div class="list">
                 <div class="item range range-positive">
                     <small>0</small>
-                    <input type="range" name="volume" min="0" max="100">
+                    <input type="range" name="fromPrice" id="fromPrice" min="0" max="100">
+                    <small>100</small>
+                </div>
+            </div>
+            <div class="list">
+                <label>To</label>
+                <div class="item range range-positive">
+                    <small>0</small>
+                    <input type="range" name="toPrice" id="toPrice" min="0" max="100">
                     <small>100</small>
                 </div>
             </div>
@@ -40,22 +64,26 @@
             <ul class="list">
                 <li class="item item-checkbox">
                     <label style="float:left;">
-                        <input type="checkbox" id="x">
+                        <input type="checkbox" id="user_image">
                     </label>
                     اخفاء السائقين الذين ليس لديهم صورة
                 </li> 
 
                 <li class="item item-checkbox">
                     <label style="float:left;">
-                        <input type="checkbox" id="y">
+                        <input type="checkbox" id="disable_full">
                     </label>
                     اخفاء الرحلات الكاملة
                 </li> 
             </ul>
         </div>
 
-        <button class="col-90 button button-full button-positive">
+        <button class="col-90 button button-full button-positive" ng-click="search()">
             فعل التصفية
         </button>
+
+        <div class="alert alert-success" id="success" style="visibility: hidden; display: none;">
+            تم فعل التصفيه بنجاح.
+        </div>
     </ion-content>
 </ion-view>
