@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova'])
         .controller('regCtrl', function ($scope, $ionicModal, $timeout, $http, $location, $state) {
             //$ionicModal.fromTemplateUrl('templates/reg.html', {
             /*  scope: $scope
@@ -56,7 +56,7 @@ angular.module('starter.controllers', [])
                 })
             }
         })
-        .controller('AppCtrl', function ($scope, $ionicPopup, $timeout, $http, $location, $state) {
+        .controller('AppCtrl', function ($scope, $ionicPopup, $http, $location, $state) {
             // Triggered on a button click, or some other target
             $scope.out = function () {
                 // alert("out")
@@ -180,6 +180,15 @@ angular.module('starter.controllers', [])
                  });*/
 
                 // alert("hey")
+ /*$cordovaFacebook.login(["public_profile", "email", "user_friends"])
+    .then(function(success) {
+      // { id: "634565435",
+      //   lastName: "bob"
+      //   ...
+      // }
+    }, function (error) {
+      // error
+    });*/
             };
 
 
@@ -567,7 +576,7 @@ angular.module('starter.controllers', [])
                                 $('#from_time').text(response.data.data.offer_ride.times[0].time);
                                 $('#to_time').text(response.data.data.offer_ride.times[1].time);
                                 $('#created_at').text(response.data.data.offer_ride.user.created_at)
-                                 $('#car_color').text(response.data.data.offer_ride.cars[0].color);
+                                $('#car_color').text(response.data.data.offer_ride.cars[0].color);
                                 $('#car_brand').text(response.data.data.offer_ride.cars[0].model);
 
                             }, 500);
