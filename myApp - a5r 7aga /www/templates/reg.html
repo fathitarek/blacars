@@ -1,0 +1,89 @@
+<ion-view >
+  <ion-header-bar>
+    <h1 class="title"></h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="container">
+    <h1 class="title">سجل الان</h1>
+    <!-- facebook-button -->
+      <div class="row">
+    <!--    <button class="button button-full social-button-square-facebook">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+           تسجيل الدخول عن طريق حساب الفيسبوك
+        </button>-->
+        <button class="button button-full social-button-square-facebook">
+          <i class="icon ion-social-facebook"></i>تسجيل الدخول عن طريق حساب الفيسبوك</button>
+      </div>
+
+     <!--او sperated-->
+      <table width="200" border="0" align="center">
+      <tbody>
+        <tr>
+          <td style="width:20%;"><div class="line"></div></td>
+          <td class="or">او</td>
+          <td style="width:20%;"><div class="line"></div></td>
+        </tr>
+      </tbody>
+    </table>
+    <form  name="login" novalidate>
+      <div class="list">
+      <label class="item item-input ">
+    <input type="text" ng-model="firstname" name="firstname"  ng-minlength="3" placeholder="الاسم الاول"required>
+    </label>
+     <label class="error-msg" ng-show="login.firstname.$error.minlength">يجب ان يكون الاسم مكون من 3 احرف على الاقل </label>
+
+<label class="item item-input ">
+    <input type="text" ng-model="lastname" name="lastname"  ng-minlength="3" placeholder=" الاسم الاخير "required>
+    </label>
+     <label class="error-msg" ng-show="login.lastname.$error.minlength">يجب ان يكون الاسم مكون من 3 احرف على الاقل </label>
+
+<label class="item item-input item-stacked-label">
+    <input type="text" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" ng-model="email" name="email" placeholder="البريد الالكتروني"  required>
+  </label>
+
+<label class="error-msg" ng-show="login.email.$error.$invalid && !login.email.$pristine">رجاء استخدام بريد الكتروني مفعل</label>
+
+
+  <label class="item item-input item-stacked-label">
+    <input type="text" name="password" ng-model="password"  ng-minlength="6" placeholder="كلمة المرور" required>
+</label>
+
+  <label class="error-msg" ng-show="login.password.$error.minlength" >6 احرف علي الاقل</label>
+
+
+  <label class="item item-input item-stacked-label">
+
+    <input type="text" name="password2" ng-model="password2"  compare-to="password" match="password" placeholder=" تاكيد كلمة المرور">
+  </label>
+
+ <label class="error-msg" ng-show="login.password2.$error.match" ng-if="password!=password2">كلمه المرور غير متطابقه</label>
+
+ 	<div class="row" style="display: inline-flex; margin-right: 15px;">
+    <div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" ng-model="gender" name="gender" id="inlineRadio1" value="male"> ذكر
+  </label>
+</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" ng-model="gender"  name="gender" id="inlineRadio2" value="female"> انثي
+  </label>
+</div>
+
+    </div>
+<div class="row">
+  	<button id="regstration" class="button button-full button-positive"
+     ng-click="doReg(firstname,lastname,password,email,gender)"  ng-disabled="login.$invalid"
+      role="button">تسجيل</button>
+  </div>
+
+    </form>
+<div  id="err" class="alert alert-danger" style="visibility: hidden;  display: none;">
+    <strong>Faild!</strong> <span id="msg"></span>
+    </div>
+  </ion-content>
+</ion-view>

@@ -3,10 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/home/fathi/blacars/myApp/www/js/controllers.js</file>
             <file>file:/home/fathi/blacars/myApp/www/templates/byanat3rd.html</file>
             <file>file:/home/fathi/blacars/myApp/www/templates/t2keedEl7agz.html</file>
             <file>file:/home/fathi/blacars/myApp/www/js/app.js</file>
+=======
+            <file>file:/Users/fathi/blacars/myApp/www/js/controllers.js</file>
+            <file>file:/Users/fathi/blacars/myApp/face.js</file>
+            <file>file:/Users/fathi/blacars/myApp/www/js/app.js</file>
+            <file>file:/Users/fathi/blacars/myApp/www/index.html</file>
+            <file>file:/Users/fathi/blacars/myApp/www/lib/facebook-connect-plugin/index.js</file>
+            <file>file:/Users/fathi/blacars/myApp/bower.json</file>
+>>>>>>> e45e8cd75ed71c0b769fb30adf1286853f059534
         </group>
     </open-files>
 </project-private>

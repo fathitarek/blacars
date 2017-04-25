@@ -22,12 +22,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             });
         })
 
-        .config(function ($stateProvider, $urlRouterProvider) {
-            /*  var appID = 1866432703602132;
+        .config(function ($stateProvider, $urlRouterProvider,$cordovaFacebookProvider) {
+              var appID = 277541469336647;
              var version = "v2.8"; // or leave blank and default is v2.0
-             $cordovaFacebookProvider.browserInit(appID, version);
-             });*/
-
+            // $cordovaFacebookProvider.browserInit(appID, version);
+            // });
 
             $stateProvider
 

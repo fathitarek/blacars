@@ -1,0 +1,184 @@
+<ion-view view-title="طلب توصيل">
+  <ion-content ng-controller="takedriveCtrl">
+   <!-- <label id="part1" class="" >-->
+
+<div class="container">
+ <div class="list">
+  <label class="item item-icon-right" href="#">
+    <i id="green" class="icon ion-android-radio-button-off"></i>
+   <!-- <input type="text" placeholder="من" id="from">-->
+    <select id="from" name="from">
+      <option ng-repeat="location in locations" value="{{location.id}}">{{location.name}}</option>
+
+    </select>
+  </label>
+  <label class="item item-icon-right" href="#">
+    <i id="red" class="icon ion-android-radio-button-off"></i>
+    <select id="to" name="to">
+      <option ng-repeat="location in locations" value="{{location.id}}">{{location.name}}</option>
+
+    </select>
+  </label>
+
+</div>
+</div>
+ <div class="bar bar-positive" style="display:block; position:relative;">
+  <h5 class="new-bar"> الوقت و الميعاد </h5>
+</div>
+
+<div class="">
+    <div class="list">
+      <label class="item item-icon-left item-icon-right" id="labelcheck">
+        <!-- <ion-checkbox ng-model="filter.red">ذهاب و عودة</ion-checkbox>-->
+        <input type="checkbox" id="goandaway"/>&nbsp;<div id="go-back">ذهاب و عودة</div>
+        <i class="icon ion-arrow-swap"></i>
+
+      </label>
+
+   <label class="item item-icon-left item-icon-right" >
+
+     <input type="date" placeholder="ميعاد الرحلة" id="home_date" style="display: inline; background-color: #e2e3e4;">
+    <input type="time" placeholder="ميعاد الرحلة"  id="home_time" style="display: inline; background-color: #e2e3e4;">
+     <!--<input id="timepicker1" type="text" class="form-control input-small">-->
+
+     <!-- <input id="timepicker" value="10:00 AM" style="width: 100%;" />-->
+    <i class="icon ion-calendar"></i>
+
+  </label>
+
+      <div id="divAway" style="visibility: hidden;  display: none;">
+        <label class="item item-icon-left item-icon-right" >
+          <input type="date" placeholder="ميعاد الرحلة" id="away_date" style="display: inline; background-color: #e2e3e4;">
+          <input type="time" placeholder="ميعاد الرحلة" id="away_time" style="display: inline; background-color: #e2e3e4;">
+
+          <i class="icon ion-calendar"></i>
+        </label>
+      </div>
+</div>
+    <div class="">
+  <button class="col-90 button button-full button-positive" id="follow">
+    متابعة
+  </button>
+</div>
+  <!--  <select>
+        <option ng-repeat="location in locations">{{location.name}}</option>
+
+    </select>-->
+</div>
+
+      <!-----------------------style="display: none"--------------->
+        <div id="part2"  style="visibility: hidden;  display: none;">
+        <div class="container" >
+          <div class="">
+            <h4>مساهمة الراكب</h4>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col col-75">
+              <h5>شارع المنتزة , المطار ,  التزهة الجديدة ,  القاهرة</h5>
+              <h6>التكلفة الموصي بها :    <span id="price">16</span>$</h6>
+            </div>
+            <div class="col">
+              <a class="item item-icon-left item-icon-right money" href="#">
+                <i class="icon ion-ios-minus-outline" id="decrease"></i>
+               <span id="numOfMoney">16</span>$
+                <i class="icon ion-ios-plus-outline"  id="increase" ></i>
+              </a>
+            </div>
+          </div>
+          <hr id="gray">
+          <div class="row">
+            <div class="col col-75">
+              <h5>عدد المقاعد المطلوبة</h5>
+            </div>
+            <div class="col">
+              <a class="item item-icon-left item-icon-right" href="#">
+                <i class="icon ion-ios-minus-outline" id="descraseSet"></i>
+                <span id="numOfSet"> 3</span>
+                <i class="icon ion-ios-plus-outline" id="inscraseSet"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="bar bar-positive" style="position: initial;">
+          <h5 class="new-bar"> التعليقات </h5>
+        </div>
+        <div class="row">
+          <label id="comment" class="item item-input item-stacked-label">
+            <span class="input-label">كتابة تعليقات علي الركوب هنا</span>
+            <textarea placeholder="رجاء اضاغة التفاصيل حول رحلتك - انها سوف توفر لك الاجابة علي الكثير من الاسئلة من الاعضاء"></textarea>
+          </label>
+        </div>
+        <div class="bar bar-positive" style="position: initial;">
+          <h5 class="new-bar"> خيارات </h5>
+        </div>
+       <!-- <label class="item item-input">
+          <i class="icon ion-person-stalker placeholder-icon"></i>
+          <ion-checkbox ng-model="filter.red">2 في المقعد الخلفي علي الاكثر</ion-checkbox>
+        </label>
+        -->
+          <label class="item item-icon-left item-icon-right">
+
+            <!-- <ion-checkbox ng-model="filter.red">ذهاب و عودة</ion-checkbox>-->
+            <input type="checkbox" id="back_seat_number" checked> <div id="" style="display: initial;">2 في المقعد الخلفي علي الاكثر</div>
+            <i class="icon ion-person-stalker placeholder-icon"></i>
+
+          </label>
+         <h6 class="seet-num">ضمان الحد الاقصي . 2 في الجزء الخلفي من السي
+             
+      <br>{يفضل الراكب}</h6>
+          <!-- ma4 fel design -->
+         <!-- <ion-checkbox id="back_seat_number" >Checkbox Label</ion-checkbox> -->
+          <div class="bar bar-positive" style="position: initial;">
+            <h5 class="new-bar"> التفاصيل </h5>
+          </div>
+          <div class="container">
+            <div class="item item-icon-left item-icon-right" href="#">
+          <label class="details"> متوسط حجم الامتعة ديه</label>
+              <i class="icon ion-bag blue-icon"></i>
+            </div>
+          <select id="volume_of_bag" name="volume_of_bag" >
+            <option  value="متوسط">متوسط</option>
+            <option  value="كبير">كبير</option>
+            <option  value="صغير">صغير</option>
+          </select>
+            <div class="item item-icon-left item-icon-right" href="#">
+          <label class="details"> مرونة موعد الاقلاع </label>
+            <i class="icon ion-ios-clock-outline blue-icon"></i>
+            </div>
+          <select id="flexability" name="flexability" >
+            <option  value="15 دقيقة ">15 دقيقة </option>
+            <option  value="في الوقت المحدد">في الوقت المحدد</option>
+            <option  value="30 دقيقة ">30 دقيقة </option>
+
+          </select>
+            <div class="item item-icon-left item-icon-right" href="#">
+          <label class="details"> امكانية التجول </label>
+            <i class="icon ion-ios-redo blue-icon"></i>
+            </div>
+          <select id="potentiality_of_wandering" name="potentiality_of_wandering" >
+            <option  value="لا يوجد امكانية">لا يوجد امكانية</option>
+            <option  value="  ١٥ دقيقة علي الاكثر">   ١٥ دقيقة علي الاكثر</option>
+            <option  value="30 دقيقة على الاكثر">30 دقيقة على الاكثر</option>
+          </select>
+          </div>
+          <hr>
+          <div class="">
+            <!-- <ion-checkbox ng-model="filter.red">ذهاب و عودة</ion-checkbox>-->
+            &nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="condation" style="transform: scale(2);">
+            <div class="container" style="margin-top: -20px; margin-right: 25px;">
+            <p style="display: inline;">اوافق علي <a style="display: inline;">شروط الاستخدام و سياسة الخصوص</a> اشهد ان احمل رخصة قيادة و يكون ......... علي السيارة صالح</p>
+            </div>
+          </div>
+    <div class="">
+      <button class="col-90 button button-full button-positive" id="publish" disabled ng-click="takedrive()">نشر
+      </button>
+    </div>
+        </div>
+
+    </ion-content>
+  </ion-view>
+

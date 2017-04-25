@@ -1,0 +1,112 @@
+<ion-view view-title="تعديل الملف الشخصي">
+
+  <ion-content ng-controller="profileCtrl">
+     <div class="row">
+  <div class="col col-60">
+    <button class="button button-outline button-positive">
+ اختر صورة الملف الشخصي
+   </button>    
+  </div>
+  <div id="edit-img" class="col col-40" >
+      <button class="button-small" id="edit"></button>
+     <img src="img/car-image-21.jpg" alt="A.A" id="personal-img"> 
+  </div>
+</div>
+
+<!--//////////////////////////////-->
+<div class="bar bar-positive" style="position: initial;">
+  <h5 class="new-bar">اضف بعض البيانات</h5>
+</div>
+<div  id="err" class="alert alert-danger" style="visibility: hidden; display: none;">
+        <strong>خطا!</strong> البريد الالكتروني و كلمة المرور خطا! .
+ </div>
+<div class="alert alert-success" style="visibility: hidden; display: none;">
+  <strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>.
+</div>
+<form name="update" novalidate>
+<div id="form" class="container">
+<div class="list">
+      <label class="item-stacked-label">
+    <span class="input-label">النوع </span></label>
+    <select id="gender" name="gender">
+        <option value="male">ذكر</option>
+        <option value="female">انثي</option>
+    </select>
+    
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">الاسم الاول</span>
+    <input type="text" id="firstname" placeholder="first name" value="">
+  </label>
+   
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">اسم الاب</span>
+    <input type="text" id="lastname" placeholder="Suhr"  value="">
+  </label>
+
+    <label class="item-stacked-label">
+    <span class="input-label">تاريخ الميلاد </span></label>
+      <!--<ion-datetime displayFormat="MM/DD/YYYY" ></ion-datetime>-->
+      <input type="date" id="birthdate" name="birthdate"/>
+
+    <label class="item item-input item-stacked-label">
+    <span class="input-label"> نبذه مختصرة عنك</span>
+    <textarea placeholder="اضف نبذة مختصرة عنك لتتمكن من خلالها بزيادة فرص اتتعارف علي اشخاص جددللسفر معهم" id="brief" name="brief"></textarea>
+    </label>
+    <label class="error-msg">500/0</label>
+    <br>
+    <div class="">
+  <button class="col-90 button button-full button-positive" ng-click='editprofile()'>
+    حفظ معلومات الملف
+  </button>
+</div>
+</div>
+</div>
+    </form>
+<form  name='email' novalidate>
+<div class="bar bar-positive" style="position: initial;">
+  <h5 class="new-bar"> البريد الالكتروني </h5>
+</div>
+    <div  id="err" class="alert alert-danger" style="visibility: hidden; display: none;">
+        <strong>خطا!</strong> البريد الالكتروني و كلمة المرور خطا! .
+    </div>
+    <div class="alert alert-success" style="visibility: hidden; display: none;">
+  <strong>Success!</strong> You should .
+</div>
+<div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-email placeholder-icon emailIcon"></i>
+    <input type="email" ng-model="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" placeholder="Example@mail.com" name="email" id="email">
+  </label>
+</div>
+<div class="">
+  <button class="col-90 button button-full button-positive" ng-disabled="email.$invalid" ng-click="editemil()" >
+    حفظ البريد الالكتروني
+  </button >
+</div>
+</form >
+<form>
+<div class="bar bar-positive" style="position: initial;">
+  <h5 class="new-bar"> رقم الهاتف </h5>
+</div>
+    <div  id="err" class="alert alert-danger" style="visibility: hidden; display: none;">
+        <strong>خطا!</strong> البريد الالكتروني و كلمة المرور خطا! .
+    </div>
+    <div class="alert alert-success" style="visibility: hidden; display: none;">
+  <strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>.
+</div>
+<div class="list list-inset">
+  <label class="item item-input">
+      
+      <input type="number" id="phone" name="phone">
+  </label>
+    <div class="dis-inital"> لا تظهر رقمي الشخصي </div><input type="checkbox" class="dis-inital" style="float: left;"/>
+    <!--<ion-checkbox ng-model="filter.red">لا تظهر رقمي الشخصي</ion-checkbox>  -->
+</div>
+    <div class="">
+  <button class="col-90 button button-full button-positive" ng-click="addphone()">
+     احفظ رقم الهاتف 
+  </button >
+</div>  
+    </form>
+    </ion-content>
+  </ion-view>

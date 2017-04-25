@@ -1,0 +1,61 @@
+<ion-side-menus enable-menu-with-back-views="false" ng-controller="profileCtrl" >
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="right">
+   <ion-header-bar class="bar-stable">
+       <img class="img-circle" src="img/ionic.png">
+ 
+       <a id="title person-name" class="title padding-top" href="#/app/editProfile" menu-close>{{profile.firstname}} {{profile.lastname}}</a>
+
+       <i id="setting" class="icon ion-gear-a left padding-top"></i>
+
+    </ion-header-bar>
+
+    <ion-content>
+      <ion-list id="menu-list">
+         <!-- <ion-item class="menu-item" menu-close href="#/app/takeDrive">
+          <i class="icon ion-android-car"></i>
+          رحلاتك السابقة
+        </ion-item>
+         
+          <ion-item class="menu-item" menu-close href="#/app/editProfile">
+          <i class="icon ion-android-car"></i>
+          رحلاتك السابقة
+        </ion-item>-->
+          
+        <ion-item class="menu-item" menu-close style="padding-right: 50px;">
+          <i class="icon ion-android-car"></i>
+          رحلاتك السابقة
+        </ion-item>
+         <ion-item id="car-request" class="menu-item" menu-close href="#/app/takeDrive">
+           <i class="icon ion-ios-plus-outline"></i>
+          اطلب مواصلة
+        </ion-item>
+        <ion-item class="menu-item" menu-close href="#">
+          <i class="icon ion-ios-star"></i>
+          التقيم
+        </ion-item>
+        <ion-item class="menu-item" menu-close href="#">
+          <i class="icon ion-email"></i>
+          صندوق الوارد
+        </ion-item>
+         <!-- #/app/playlists -->
+        <ion-item class="menu-item" menu-close href="#">
+          <i class="icon ion-ios-help-outline"></i>
+          اطلب مساعدة
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

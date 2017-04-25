@@ -1,0 +1,104 @@
+<ion-view view-title="">
+  <ion-header-bar>
+   <a id="list-icon">
+      <i class="icon ion-chevron-left left"></i>
+    </a>
+  </ion-header-bar>
+  
+  <ion-content>
+    
+    <!-- registration-word -->
+<div class="container"  ng-controller="AppCtrl">
+    <h3 class="title"><a class="regstration-link" href="#/reg" >تسجيل الدخول</a></h3>
+<!-- facebook-button -->
+
+  <button class="button button-full social-button-square-facebook  f-but" ng-click="loginFacebook()">
+    <i class="icon ion-social-facebook"></i>تسجيل الدخول عن طريق حساب الفيسبوك</button>
+
+<!--او sperated-->
+<table width="200" border="0" align="center">
+<tbody>
+  <tr>
+    <td style="width:20%;"><div class="line"></div></td>
+    <td class="or">او</td>
+    <td style="width:20%;"><div class="line"></div></td>
+  </tr>
+</tbody>
+</table>
+<br>
+    <div  id="err" class="alert alert-danger" style="visibility: hidden; display: none;">
+        <strong>خطا!</strong> البريد الالكتروني و كلمة المرور خطا! .
+    </div>
+    <form name="login" novalidate>
+     <!-- <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="loginData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Log in</button>
+        </label>
+      </div>-->
+      <div class="list">
+ <label class="item item-input item-stacked-label">
+   <i class="icon ion-person blue"></i>
+    <input class="icon-input"  type="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" ng-model="email" name="email" placeholder="البريد الاكتروني">
+    </label>
+    <label class="error-msg"></label>
+  <label class="item item-input item-stacked-label">
+    <i class="icon ion-locked blue"></i>
+    <input class="icon-input" type="password" name="password" ng-model="password"  ng-minlength="6"
+    placeholder="كلمة المرور"  placeholder="كلمة المرور">
+  </label>
+</div>
+
+  <button class="button button-full button-positive f-but" ng-click="doLogin(password,email)"  ng-disabled="login.$invalid">تسجيل الدخول</button>
+
+</form >
+
+
+<div class="w3-container" ng-controller="AppCtrl">
+  <a class="forget-password" ng-click="showPopup()"> هل نسيت كلمة المرور؟ </a>
+
+  
+  
+ <!-- <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-closebtn">&times;</span>
+        <div class="row responsive-sm">
+        <div class="col">
+        <button class="button button-full button-positive">الايميل الالكتروني الخاص بك</button>
+        </div>
+        <div class="col">
+          <button class="button button-full button-positive">ارسال</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+</div>
+
+
+
+<!--
+<select>
+        <option ng-repeat="country in countries">{{country.name}}</option>
+
+    </select>
+
+<select>
+        <option ng-repeat="location in locations">{{location.name}}</option>
+
+    </select>
+-->
+<div>
+</div>
+  </ion-content>
+</ion-view>
+
