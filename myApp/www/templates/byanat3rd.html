@@ -1,6 +1,7 @@
-<ion-view>
-    <ion-content ng-init="byanat3rd(id)">
+<ion-view >
+    <ion-content >
        <!--عرض و طلب-->
+       <div ng-init="byanat3rd(id)">
       <div class="bar bar-positive" style="position: initial;">
           <h5 class="new-bar">الخميس . 4 ابريل - 2010</h5>
     </div>
@@ -74,7 +75,7 @@
     </div>
     <div class="">
     <div class="row" >
-        <div class="col col-25"><img class="img-responsive" src="../img/car-image-21.jpg"></div>
+        <div class="col col-25"><img class="img-responsive" src="#"></div>
         <div class="col col-50">
             <label class="item item-input">
                 <span class="input-label">النوع : </span>
@@ -119,7 +120,7 @@
       <img id="user_img">
         <h2><b><span class="block_fname"> </span>  <span  class="block_lname"> </span>- <span class="block_age"></span> سنة</b></h2>
         <p class="item item-icon-right border"><i class="icon ion-star yellow"></i>تقيم <span id="block_rate"></span>/5</p>
-      <i id="left" class="icon"><img class="imd-responsive"  src="../img/time-icon_03.png"></i>
+      <i id="left" class="icon"><img class="imd-responsive"  src="#"></i>
     </a>
     <label class="item item-input">
           <span class="input-label">تاريخ التسجيل : </span>
@@ -150,8 +151,10 @@
              <b class="selectItems">التاكيد من بريد الالكتروني العارض</b>
         </li>
     </ul>-->
-       <div class="row container">
-        <button class="col-90 button button-positive">حجز</button>
+    </div>
+       <div class="row container" >
+           <!-- href="#/t2keedEl7agz"  ng-click="taked()"-->
+           <a class="col-90 button button-positive" ng-click="taked()"    >حجز</a>
     </div> 
     </ion-content>
 </ion-view>

@@ -483,7 +483,7 @@ angular.module('starter.controllers', [])
             $('.fromd').html($('.fromh').html());
             $('.tod').html($('.toh').html());
         })
-        .controller('filterSearchCtrl', function ($scope, $http, $state) {
+        .controller('filterSearchCtrl', function ($scope, $http,$location, $state) {
             var user_image, disable_full;
             $('#time').change(function () {
                 //alert( $('#time').val())
@@ -553,7 +553,7 @@ angular.module('starter.controllers', [])
                             setInterval(function () {
                                 $('.block_fname').text(response.data.data.offer_ride.user.firstname);
                                 $('.block_lname').text(response.data.data.offer_ride.user.lastname);
-                                $("#user_img").attr("src", response.data.data.offer_ride.user.image);
+                               // $("#user_img").attr("src", response.data.data.offer_ride.user.image);
                                 $('#block_price').text(response.data.data.offer_ride.price);
                                 $('.block_age').text(response.data.data.offer_ride.user.age);
                                 $('#block_number_of_seats').text(response.data.data.offer_ride.number_of_seats);
@@ -567,16 +567,17 @@ angular.module('starter.controllers', [])
                                 $('#from_time').text(response.data.data.offer_ride.times[0].time);
                                 $('#to_time').text(response.data.data.offer_ride.times[1].time);
                                 $('#created_at').text(response.data.data.offer_ride.user.created_at)
-                                 $('#car_color').text(response.data.data.offer_ride.cars[0].color);
-                                $('#car_brand').text(response.data.data.offer_ride.cars[0].model);
+                                 //$('#car_color').text(response.data.data.offer_ride.cars[0].color);
+                                //$('#car_brand').text(response.data.data.offer_ride.cars[0].model);
 
                             }, 500);
+                            
                         })
 
 //                $('.block_lname').text(lastname);
 //                $('.block_age').text(age);
-                /*
-                 setInterval(function(){ $state.go("byanat3rd");
+                
+              /*   setInterval(function(){ $state.go("byanat3rd");
                  }, 500);
                  setInterval(function(){
                  $('.block_fname').text(firstname);
@@ -585,11 +586,32 @@ angular.module('starter.controllers', [])
                  $('#block_number_of_seats').text(number_of_seats);
                  $('#block_rate').text(rate);
                  $('#block_price').text(price);
-                 }, 500);*/
+                 }, 500);
+                 */
                 //    $('#firstname').val(response.data.data.user.firstname)
 
                 // $state.go("byanat3rd");
 
+            }
+           $scope.taked=function () {
+              //  setInterval(function () {
+                      $state.go("t2keedEl7agz");
+                     // $location.path('/t2keedEl7agz');
+    // alert("h");                          
+                           // }, 500);
+                              
+               // $state.go("t2keedEl7agz");
+            }
+        })
+                .controller('takedCtrl',function ($scope, $http, $location,$state) {
+                    alert("here")
+            $scope.taked=function () {
+              //  setInterval(function () {
+                                $state.go("t2keedEl7agz");
+                               // $location.path('/t2keedEl7agz');
+                           // }, 500);
+                              
+               // $state.go("t2keedEl7agz");
             }
         })
         .controller('PlaylistCtrl', function ($scope, $stateParams) {

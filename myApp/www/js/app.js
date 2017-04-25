@@ -125,13 +125,20 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                         templateUrl: 'templates/reg.html',
                         controller: 'regCtrl'
                                 //}
+                    })
+                            .state('t2keedEl7agz', {
+                        url: '/t2keedEl7agz',
+                        
+                        templateUrl: 'templates/t2keedEl7agz.html',
+                        controller: 'takedCtrl'
+                                
                     }).
                     state('modetElr7la', {
                         url: '/modetElr7la',
-
+                
                         templateUrl: 'templates/modetElr7la.html',
                         controller: 'searchRideCtrl'
-
+                        
                     }).
                     state('modetElr7la2', {
                         url: '/modetElr7la2',
